@@ -5,10 +5,9 @@ import CarouselHomePage from "../components/CarouselHomePage"
 import CardHomePage from "../components/CardHomePage"
 
 function HomePage() {
-  const { fechDataDoctors } = useGlobalContext()
-  console.log(fechDataDoctors)
-
+  const { fechDataDoctors, doctorsData } = useGlobalContext()
   useEffect(fechDataDoctors, [])
+
 
   return (
     <>
@@ -18,14 +17,10 @@ function HomePage() {
 
       <section className="container m-auto flex justify-center my-[50px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <CardHomePage />
-          <CardHomePage />
-          <CardHomePage />
-          <CardHomePage />
-          <CardHomePage />
-          <CardHomePage />
-          <CardHomePage />
-          <CardHomePage />
+          {doctorsData.map(doctor => {
+            <CardHomePage data={doctor} />
+          })}
+
         </div>
       </section>
     </>

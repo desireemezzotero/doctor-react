@@ -1,36 +1,41 @@
 import { createContext, useState, useContext } from "react";
 import axios from "axios";
 
-const GlobalContext = createContext() 
+const GlobalContext = createContext()
 
-const GlobalProvider = ({children}) => {
+const GlobalProvider = ({ children }) => {
   //importazione apiUrl
   const apiUrl = import.meta.env.VITE_API_URL
- 
+  const [doctorsData, setDoctorsData] = useState([]);
+
   //funzione per la index
   const fechDataDoctors = () => {
     axios.get(apiUrl)
-    .then(res => 
-      console.log(res.data)
-    )
-    .catch(err => {
-      console.log(err)
-    });
+      .then(res => {
+        setDoctorsData(res.data)
+
+
+
+      })
+      .catch(err => {
+        console.log(err)
+      });
   }
-  
+
   const value = {
-    fechDataDoctors
+    fechDataDoctors,
+    doctorsData
   }
 
   return (
-    <GlobalContext.Provider value= {value}>
+    <GlobalContext.Provider value={value}>
       {children}
     </GlobalContext.Provider>
   )
 }
 
 const useGlobalContext = () => {
-  return useContext (GlobalContext)
+  return useContext(GlobalContext)
 }
 
 export {
