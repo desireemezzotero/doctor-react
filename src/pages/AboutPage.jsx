@@ -1,7 +1,7 @@
 function AboutPage() {
   return (
     <div className="container">
-      <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Chi siamo?</h1>
+      <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Chi siamo?</h1>
      <p>
        BDoctors è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti, semplificando e rendendo più trasparente il processo di ricerca e scelta del professionista giusto per le proprie esigenze sanitarie. La nostra web app offre agli utenti la possibilità di cercare facilmente medici specializzati in una vasta gamma di discipline, visualizzando informazioni dettagliate sui professionisti, comprese le specializzazioni, i contatti e la disponibilità.
 
