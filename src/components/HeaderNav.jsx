@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 function HeaderNav() {
   return (
-    <nav className="bg-teal-500 fixed w-full z-20 top-0 start-0 border-gray-200 dark:border-gray-600">
+    <nav className="bg-teal-500 fixed w-full z-20 top-0 start-0 border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
         {/* immagine logo */}
@@ -20,9 +20,9 @@ function HeaderNav() {
             </svg>
           </button>
         </div>
-        
+
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-teal-500 md:space-x-8 md:flex-row md:mt-0 md:border-0 dark:bg-gray-800">
+          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-teal-500 md:space-x-8 md:flex-row md:mt-0 md:border-0">
             <li>
               <NavLink to="/" className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:p-0" aria-current="page">HomePage</NavLink>
             </li>
