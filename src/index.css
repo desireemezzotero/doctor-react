@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.debug {
+  border: 1px dashed red;
+}
+
 body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -9,6 +13,13 @@ body {
   color: #000;
   margin: 0;
   padding: 0;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 14/16;
+  height: 100%;
+  object-fit: cover;
 }
 
 .swiper {
@@ -35,6 +46,7 @@ body {
 }
 
 /* Cambia il colore delle frecce */
-.mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
   color: #ff474700;
 }
