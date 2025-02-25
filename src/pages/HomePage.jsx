@@ -1,6 +1,9 @@
 import { useGlobalContext } from "../context/GlobalContext"
 import { useEffect } from "react"
 
+import CarouselHomePage from "../components/CarouselHomePage"
+import CardHomePage from "../components/CardHomePage"
+
 function HomePage() {
   const {fechDataDoctors} = useGlobalContext()
   console.log(fechDataDoctors)
@@ -8,9 +11,13 @@ function HomePage() {
   useEffect(fechDataDoctors, [])
 
   return (
-    <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+    <>
+    <section className="h-[500px]">
+      <CarouselHomePage />
+    </section>
+    <CardHomePage/>
+    </>
+
   )
 }
 
