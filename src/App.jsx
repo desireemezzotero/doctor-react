@@ -1,10 +1,22 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GlobalProvider } from "./context/GlobalContext";
+import DefaultLayout from "./layout/DefaultLayout";
 import HomePage from "./pages/HomePage";
-import HeaderNav from "./components/HeaderNav";
+import AboutPage from "./pages/AboutPage";
+
 function App() {
   return (
     <>
-    <HeaderNav/>
-     <HomePage/>
+    <GlobalProvider>
+      <BrowserRouter>
+        <Routes>
+         <Route Component={DefaultLayout}>
+           <Route path='/' Component={HomePage}/>
+           <Route path='/about' Component={AboutPage}/>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </GlobalProvider>
     </>
   )
 }
