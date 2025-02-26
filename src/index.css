@@ -17,8 +17,11 @@ body {
 
 img {
   width: 100%;
-  aspect-ratio: 14/16;
   height: 100%;
+}
+
+.hp-doctor-img {
+  aspect-ratio: 14/16;
   object-fit: cover;
 }
 
@@ -45,8 +48,12 @@ img {
   object-fit: cover;
 }
 
-/* Cambia il colore delle frecce */
-.mySwiper .swiper-button-next,
-.mySwiper .swiper-button-prev {
-  color: #ff474700;
+.bg_image-1 {
+  background-size: cover;
+  background-image: url('../src/assets/img/hero-img-1.jpg');
+}
+
+.bg_image-2 {
+  background-size: cover;
+  background-image: url('../src/assets/img/hero-img-2.jpg');
 }

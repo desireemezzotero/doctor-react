@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom"
 
 function HeaderNav() {
   return (
-    <nav className="bg-teal-500 fixed w-full z-20 top-0 start-0 border-gray-200">
+    <nav className="bg-teal-500 fixed w-full top-0 start-0 border-gray-200 z-50">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
         {/* immagine logo */}
