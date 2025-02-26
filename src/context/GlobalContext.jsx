@@ -8,12 +8,13 @@ const GlobalProvider = ({ children }) => {
   const apiUrl = import.meta.env.VITE_API_URL
   const [doctorsData, setDoctorsData] = useState([]);
   const [doctorData, setDoctorData] = useState([])
-
+  const [speciality, setSpeciality] = useState([])
   //funzione per la index
   const fechDataDoctors = () => {
     axios.get(apiUrl)
       .then(res => {
-        setDoctorsData(res.data);
+        setDoctorsData(res.data.doctors)
+        setSpeciality(res.data.speciality)
       })
       .catch(err => {
         console.log(err)
@@ -35,7 +36,9 @@ const GlobalProvider = ({ children }) => {
     fechDataDoctors,
     doctorsData,
     doctorData,
-    fechDataDoctor
+    fechDataDoctor,
+    setSpeciality,
+    speciality
   }
 
   return (

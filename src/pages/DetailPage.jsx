@@ -43,6 +43,7 @@ function DetailPage() {
           </div>
         </div>
 
+
         <div className="flex items-center container mx-auto justify-center xl:mx-[170px] md:mx-[50px]">
           <div className="p-4 w-full border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 ">
             <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Specializzazioni:</h3>
@@ -58,10 +59,7 @@ function DetailPage() {
               )
             })}
           </div>
-
-
         </div>
-
       </div>
 
 
