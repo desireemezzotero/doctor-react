@@ -70,7 +70,7 @@ function DetailPage() {
                     <div className="flex items-center">
 
                       <div className="shrink-0">
-                        <i class="fa-solid fa-user w-8 h-8"></i>
+                        <i className="fa-solid fa-user w-8 h-8"></i>
                       </div>
 
                       <div>
