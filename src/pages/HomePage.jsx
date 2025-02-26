@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import CarouselHomePage from "../components/CarouselHomePage";
 import CardHomePage from "../components/CardHomePage";
+import aboutImg from "../assets/img/about.jpg"
 
 function HomePage() {
   const { fechDataDoctors, doctorsData } = useGlobalContext();
@@ -32,18 +33,18 @@ function HomePage() {
         <CarouselHomePage />
       </section>
 
-      <section className="container mt-[50px] m-auto">
+      <section className="container mt-[50px] mx-auto">
         <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-10 mt-10 text-center">Cosa offriamo</h3>
-        <div className="flex content-center mx-[200px] h-[300px] bg-white">
-          <div className="w-[60%] p-10">
-            <p>BDoctors è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti.
-
-              Il nostro obiettivo è garantire che ogni paziente abbia accesso a una vasta rete di professionisti qualificati, ma anche alla possibilità di valutare la qualità delle prestazioni ricevute.
-
-              Con BDoctors, i pazienti possono trovare il medico giusto in modo semplice e veloce, mentre i medici hanno l'opportunità di entrare in contatto con nuove persone e di costruire una reputazione basata sulle recensioni reali dei propri pazienti. In questo modo, lavoriamo insieme per creare un sistema sanitario più trasparente, accessibile e di qualità.</p>
+        
+      
+        <div className="flex bg-white h-[200px] xl:mx-[170px] md:mx-[50px]">
+          <div className=" w-[75%] flex items-center">
+            <p className="pl-5">BDoctors è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti. <br></br>
+             <span className="font-bold"> Sei un medico? </span>Aggiungiti anche tu sulla nostra piattaforma.<br></br>
+             <span className="font-bold"> Sei un paziente? </span>Trova il medico giusto in modo semplice e veloce.</p>
           </div>
-          <div className="w-[40%] about-img">
-
+          <div className="w-[35%] h-full">
+           <img src={aboutImg} className="w-full h-full object-fix"/> 
           </div>
         </div>
 
