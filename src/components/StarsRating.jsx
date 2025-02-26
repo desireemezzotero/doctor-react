@@ -2,7 +2,7 @@ function StarsRating({ ratingVote }) {
 
    const stars = [];
    const fullStars = Math.floor(ratingVote);
-   const hasHalfStar = ratingVote % 1 > 0 && ratingVote % 1 <= 0.5; // Verifica la mezza stella
+   const hasHalfStar = ratingVote % 1 > 0 && ratingVote % 1 <= 0.5;
 
    for (let i = 0; i < 5; i++) {
       if (i < fullStars) {
@@ -13,7 +13,7 @@ function StarsRating({ ratingVote }) {
             </svg>
          );
       } else if (i === fullStars && hasHalfStar) {
-         // Mezza stella
+         // Stelle mezze
          stars.push(
             <svg key={i} className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
                <defs>
@@ -41,8 +41,7 @@ function StarsRating({ ratingVote }) {
             <div className="flex">
                {stars}
             </div>
-            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ms-3">{ratingVote}</span>
-
+            <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ms-3">{ratingVote}</span>
          </div>
       </>
    )
