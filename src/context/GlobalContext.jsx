@@ -12,10 +12,7 @@ const GlobalProvider = ({ children }) => {
   const fechDataDoctors = () => {
     axios.get(apiUrl)
       .then(res => {
-        setDoctorsData(res.data)
-
-
-
+        setDoctorsData(res.data);
       })
       .catch(err => {
         console.log(err)
