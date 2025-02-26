@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Link } from 'react-router-dom';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -33,6 +33,7 @@ function CarouselHomePage() {
         <div className='mx-[100px]'>
           <h1 className='text-5xl w-[500px] text-white'>Trova il medico giusto per te in pochi clic.</h1>
           <h4 className='text-xl mt-6 w-[400px] text-white'>Scegli tra centinaia di specialisti verificati e prenota subito la tua visita!</h4>
+          <button className='mt-[100px]'><Link className=' bg-white py-[15px] px-[40px]' to='/advance'>Trova un Dottore!</Link></button>
         </div>
       </div>
     </div>

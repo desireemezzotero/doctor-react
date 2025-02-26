@@ -14,7 +14,7 @@ function DetailPage() {
     <div className="container mx-auto pt-[50px] mb-10">
       <div className="doctor-card flex flex-wrap items-center justify-center gap-5">
         <div className=" mr-[40px]">
-          <img className="rounded h-[350px] w-[300px]" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
+          <img className="rounded max-w-[450px] max-h-[300px]" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
         </div>
 
 
