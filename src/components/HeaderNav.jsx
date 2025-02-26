@@ -11,7 +11,7 @@ function HeaderNav() {
         </NavLink>
 
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <button type="button" className="text-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-400 rounded-lg text-sm px-4 py-2 bg-teal-50">Get started</button>
+          <button type="button" className="text-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-400 rounded-lg text-sm px-4 py-2 bg-teal-50">Aggiungi dottore</button>
 
           <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2  focus:ring-teal-400 text-teal-50" aria-controls="navbar-sticky" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
@@ -29,6 +29,10 @@ function HeaderNav() {
 
             <li>
               <NavLink to="/about" className="block py-2 px-3 text-white rounded-sm md:bg-transparent  md:p-0" aria-current="page">About</NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/advance" className="block py-2 px-3 text-white rounded-sm md:bg-transparent  md:p-0" aria-current="page">Advance</NavLink>
             </li>
           </ul>
         </div>

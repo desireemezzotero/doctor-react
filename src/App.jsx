@@ -4,6 +4,7 @@ import DefaultLayout from "./layout/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import DetailPage from "./pages/DetailPage";
+import AdvancePage from "./pages/AdvancePage" 
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
               <Route path='/' Component={HomePage} />
               <Route path='/about' Component={AboutPage} />
               <Route path='/doctor/:id' Component={DetailPage} />
+              <Route path='/advance' Component={DetailPage} />
             </Route>
           </Routes>
         </BrowserRouter>
