@@ -22,7 +22,7 @@ function HomePage() {
   // Ordina i dottori in base alla recensione media e seleziona i primi 10
   const topDoctors = filteredDoctors
     .sort((a, b) => b.averageVote - a.averageVote)
-    .slice(0, 10);
+    .slice(0, 8);
 
   useEffect(fechDataDoctors, []);
 
