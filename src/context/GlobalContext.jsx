@@ -19,9 +19,10 @@ const GlobalProvider = ({ children }) => {
       });
   }
 
+
   const value = {
     fechDataDoctors,
-    doctorsData
+    doctorsData,
   }
 
   return (
