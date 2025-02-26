@@ -22,11 +22,7 @@ function AdvancePage() {
 
   return (
     <>
-      <section>
-        <CarouselHomePage />
-      </section>
-
-      <section className="container mt-[50px] m-auto">
+      <section className="container mt-[130px] m-auto">
         <form className="max-w-md mx-auto">
           <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
           <div className="relative">
