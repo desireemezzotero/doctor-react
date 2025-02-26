@@ -1,24 +1,30 @@
-import { useGlobalContext } from "../context/GlobalContext"
-import { useEffect, useState } from "react"
+import { useGlobalContext } from "../context/GlobalContext";
+import { useEffect, useState } from "react";
 
-import CarouselHomePage from "../components/CarouselHomePage"
-import CardHomePage from "../components/CardHomePage"
+import CarouselHomePage from "../components/CarouselHomePage";
+import CardHomePage from "../components/CardHomePage";
 
 function HomePage() {
-  const { fechDataDoctors, doctorsData } = useGlobalContext()
-  const [searchTerm, setSearchTerm] = useState('')
+  const { fechDataDoctors, doctorsData } = useGlobalContext();
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handlerChange = (e) => {
-    setSearchTerm(e.target.value)
-  }
+    setSearchTerm(e.target.value);
+  };
 
+  // Filtra i dottori in base al termine di ricerca
   const filteredDoctors = doctorsData.filter(doc => {
-    if (doc.name.toLowerCase().includes(searchTerm.toLowerCase()) || doc.surname.toLowerCase().includes(searchTerm.toLowerCase()) || doc.name_speciality.toLowerCase().includes(searchTerm.toLowerCase())) {
-      return doc
-    }
-  })
+    return doc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      doc.surname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      doc.name_speciality.toLowerCase().includes(searchTerm.toLowerCase());
+  });
 
-  useEffect(fechDataDoctors, [])
+  // Ordina i dottori in base alla recensione media e seleziona i primi 10
+  const topDoctors = filteredDoctors
+    .sort((a, b) => b.averageVote - a.averageVote)
+    .slice(0, 10);
+
+  useEffect(fechDataDoctors, []);
 
   return (
     <>
@@ -49,17 +55,16 @@ function HomePage() {
         </form>
 
         <div className="container px-1 flex justify-center my-[50px]">
-
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredDoctors.map(doctor => (
+            {topDoctors.map(doctor => (
               <CardHomePage key={doctor.id} data={doctor} />
             ))}
           </div>
         </div>
       </section>
     </>
-
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;
+
