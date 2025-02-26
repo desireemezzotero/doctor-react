@@ -1,8 +1,12 @@
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { useGlobalContext } from "../context/GlobalContext"
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+
+import StarsRating from "../components/StarsRating";
+
 function DetailPage() {
   const { id } = useParams()
   const { doctorData, fechDataDoctor } = useGlobalContext()
@@ -39,8 +43,8 @@ function DetailPage() {
           </div>
         </div>
 
-        <div className="flex items-center">
-          <div className="p-4 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 ">
+        <div className="flex items-center container mx-auto justify-center xl:mx-[170px] md:mx-[50px]">
+          <div className="p-4 w-full border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 ">
             <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Specializzazioni:</h3>
             {specializations?.map(speciality => {
               return (
@@ -54,20 +58,32 @@ function DetailPage() {
               )
             })}
           </div>
+
+
         </div>
 
       </div>
 
 
-      <div className="flex items-center justify-center mt-[50px]">
-        <div className="p-4 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 ">
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Recensioni:</h3>
+      <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 text-center mt-5">Recensioni:</h3>
 
-          <div className="flow-root">
+    {
+      reviews?.[0]?.name !== null ? (
+        <div className="flex items-center justify-center mt-4 mx-auto xl:mx-[170px] md:mx-[50px]">
+        <div className="p-4 border flex w-full border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 ">
+        
+          <div className="w-[40%] text-center items-center justify-items-center py-3">
+              <h4 className="font-bold">
+                Voto medio:
+              </h4>
+               <StarsRating ratingVote = {average_vote} />
+          </div>
+
+          <div className="flow-root w-[60%]">
             <ul role="list" className="divide-y divide-gray-200">
 
-              {reviews?.map(review => {
-                return (
+               {reviews?.map(review => {
+                 return (
                   <li className="py-3 sm:py-4" key={review.id}>
                     <div className="flex items-center">
 
@@ -76,20 +92,27 @@ function DetailPage() {
                       </div>
 
                       <div>
-                        <p className="text-sm"> {review.date}</p>
-                        <p className="font-bold">{review.name}</p>
-                        <p className="font-bold flex">{review.title}: {review.vote} </p>
+                        <p className="font-bold flex">{review.title}: 
+                          <span className="pl-2">
+                           <StarsRating ratingVote = {review.vote} /> 
+                           </span>
+                        </p>
+                        <p className="text-[10px]"> {review.date}</p>
+                        <p className="font-bold text-[13px]">{review.name}</p>
                         <p>{review.description}</p>
                       </div>
                     </div>
                   </li>
-                )
-              }
-              )}
+                )})}
             </ul>
           </div>
         </div>
-      </div>
+      </div>) : (
+        <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 text-center">
+          Nessun utente ha lasciato una recensione!
+        </h3>
+      )}
+
     </div>
   )
 }
