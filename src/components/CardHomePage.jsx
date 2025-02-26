@@ -7,7 +7,7 @@ function CardHomePage({ data }) {
     return (
         <div className="w-full h-[500px] bg-white border border-gray-200 rounded-lg shadow-sm">
             <div className="h-[70%]">
-                <img className="rounded hp-doctor-img" src={image_url} alt={`Doctor ${surname} ${name} image`} />
+                <img className=" object-top rounded hp-doctor-img " src={image_url} alt={`Doctor ${surname} ${name} image`} />
             </div>
             <div className="h-[30%] flex flex-col items-between justify-center">
                 <div className="p-4">

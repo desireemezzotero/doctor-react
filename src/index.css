@@ -51,14 +51,13 @@ img {
 .bg_image-1 {
   background-size: cover;
   background-image: url('../src/assets/img/hero-img-1.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
 }
 
 .bg_image-2 {
   background-size: cover;
   background-image: url('../src/assets/img/hero-img-2.jpg');
-}
-
-.about-img {
-  background-size: cover;
-  background-image: url('../src/assets/img/about_img.jpg');
+  background-position: top;
+  background-repeat: no-repeat;
 }
