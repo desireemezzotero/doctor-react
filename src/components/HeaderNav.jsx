@@ -1,14 +1,15 @@
 import { NavLink } from "react-router-dom"
-
+import logo from "../assets/img/logo.png"
 function HeaderNav() {
   return (
     <nav className="bg-teal-500 fixed w-full top-0 start-0 border-gray-200 z-50">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-
-        {/* immagine logo */}
-        <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">BDoctors</span>
-        </NavLink>
+      <div className="max-w- screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+       
+      <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+         <img src={logo} className=" rounded-3xl h-8" alt="Flowbite Logo" />
+         <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Bdoctors</span>
+      </NavLink>
+    
 
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button className="mr-6">

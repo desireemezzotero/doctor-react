@@ -14,9 +14,10 @@ function CardHomePage({ data }) {
                     <h5 className="text-xl font-semibold tracking-tight text-gray-900">{`${name} ${surname}`}</h5>
                     <span className="text-gray-900">{name_speciality}</span>
                     <div className="mt-4 flex justify-between items-center">
-                        <StarsRating ratingVote={average_vote} />
+                      <StarsRating ratingVote={average_vote} />
+                        
                         <div className="flex items-center justify-between">
-                            <NavLink to={`/doctor/${id}`} className="text-teal-50 bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Vedi</NavLink>
+                            <NavLink to={`/doctor/${id}`} className="text-teal-50 bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Visualizza</NavLink>
                         </div>
                     </div>
                 </div>
