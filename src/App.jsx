@@ -3,6 +3,7 @@ import { GlobalProvider } from "./context/GlobalContext";
 import DefaultLayout from "./layout/DefaultLayout";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
          <Route Component={DefaultLayout}>
            <Route path='/' Component={HomePage}/>
            <Route path='/about' Component={AboutPage}/>
+           <Route path='/doctor/:id' Component={DetailPage}/>
           </Route>
         </Routes>
       </BrowserRouter>

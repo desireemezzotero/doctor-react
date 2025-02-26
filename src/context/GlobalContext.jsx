@@ -7,6 +7,7 @@ const GlobalProvider = ({ children }) => {
   //importazione apiUrl
   const apiUrl = import.meta.env.VITE_API_URL
   const [doctorsData, setDoctorsData] = useState([]);
+  const [doctorData, setDoctorData] = useState([])
 
   //funzione per la index
   const fechDataDoctors = () => {
@@ -19,10 +20,22 @@ const GlobalProvider = ({ children }) => {
       });
   }
 
+  //funzione per stampare un dottore
+ const fechDataDoctor = (id) => {
+  axios.get(`${apiUrl}/${id}`)
+  .then(res => {
+    setDoctorData(res.data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+ }
 
   const value = {
     fechDataDoctors,
     doctorsData,
+    doctorData,
+    fechDataDoctor
   }
 
   return (
