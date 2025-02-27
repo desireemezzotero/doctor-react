@@ -37,7 +37,7 @@ function StarsRating({ ratingVote }) {
 
    return (
       <>
-         <div className="flex">
+         <div className="flex mt-3">
             <div className="flex">
                {stars}
             </div>

@@ -23,7 +23,7 @@ function HomePage() {
   // Ordina i dottori in base alla recensione media e seleziona i primi 10
   const topDoctors = filteredDoctors
     .sort((a, b) => b.averageVote - a.averageVote)
-    .slice(0, 8);
+    .slice(0, 10);
 
   useEffect(fechDataDoctors, []);
 
@@ -67,7 +67,7 @@ function HomePage() {
 
         <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center">I medici più ricercati</h3>
         <div className="px-1 flex justify-center my-[50px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {topDoctors.map(doctor => (
               <CardHomePage key={doctor.id} data={doctor} />
             ))}
