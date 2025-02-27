@@ -6,14 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import StarsRating from "../components/StarsRating";
+import NewReviewForm from "../components/NewReviewForm";
 
 function DetailPage() {
   const { id } = useParams();
   const { doctorData, fechDataDoctor } = useGlobalContext();
 
   const { doctorName, doctorSurname, doctorTelephone, doctorMail, image_url, address, average_vote, specializations, reviews } = doctorData;
+
   useEffect(() => {
-    fechDataDoctor(id);
+    fechDataDoctor(id),
+    window.scrollTo(0, 0)
   }, [id]);
 
   return (
@@ -70,7 +73,7 @@ function DetailPage() {
               <StarsRating ratingVote={average_vote} />
             </div>
 
-            <div className="flow-root w-[60%]">
+            <div className="flow-root w-[60%]" id="#reviews">
               <ul role="list" className="divide-y divide-gray-200">
                 {reviews?.map(review => {
                   return (
@@ -103,6 +106,7 @@ function DetailPage() {
           Nessun utente ha lasciato una recensione!
         </h3>
       )}
+     <NewReviewForm doctorId={id}/>
     </div >
   );
 }

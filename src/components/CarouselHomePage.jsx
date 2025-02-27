@@ -11,7 +11,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 function CarouselHomePage() {
   return (
-    <div className='relative h-[600px] overflow-hidden'>
+    <div className='relative h-[600px] overflow-hidden z-20'>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -10,7 +10,7 @@ function SpecialitiesPage() {
 
   console.log(specialityData)
 
-  useEffect(() => {fechSpecialityById(id)}, [id])
+  useEffect(() => {fechSpecialityById(id),window.scrollTo(0, 0)}, [id])
 
   const handlerChange = (e) => {
    setSearchTerm(e.target.value)
