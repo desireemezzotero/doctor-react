@@ -51,13 +51,17 @@ img {
 .bg_image-1 {
   background-size: cover;
   background-image: url('../src/assets/img/hero-img-1.jpg');
-  background-position: top;
   background-repeat: no-repeat;
+  background-position: top center;
 }
 
 .bg_image-2 {
   background-size: cover;
   background-image: url('../src/assets/img/hero-img-2.jpg');
-  background-position: top;
   background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.bg-gradient-to-t {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0));
 }
