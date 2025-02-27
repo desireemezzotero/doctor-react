@@ -6,20 +6,20 @@ function HeaderNav() {
       <div className="max-w- screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
        
       <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-         <img src={logo} className=" rounded-3xl h-8" alt="Flowbite Logo" />
-         <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Bdoctors</span>
+         <img src={logo} className=" rounded-3xl h-8 transition-all duration-300 hover:scale-110" alt="Flowbite Logo" />
+         <span className="self-center text-2xl font-semibold whitespace-nowrap text-white transition-all duration-300 hover:scale-110">Bdoctors</span>
       </NavLink>
     
 
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button className="mr-6">
             <NavLink to='/advance'>
-              <svg className="w-5 h-5 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <svg className="w-5 h-5 text-white transition-all duration-300 hover:scale-110" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
               </svg>
             </NavLink>
           </button>
-          <button type="button" className="text-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-400 rounded-lg text-sm px-4 py-2 bg-teal-50">Iscriviti</button>
+          <button type="button" className="text-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-400 rounded-lg text-sm px-4 py-2 bg-teal-50 transition-all duration-300 hover:scale-110">Iscriviti</button>
 
           <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2  focus:ring-teal-400 text-teal-50" aria-controls="navbar-sticky" aria-expanded="false">
             <span className="sr-only">Open main menu</span>

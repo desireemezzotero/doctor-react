@@ -39,11 +39,11 @@ function HomePage() {
         <div className="flex bg-white h-[200px] xl:mx-[170px] md:mx-[50px]">
           <div className=" w-[75%] flex items-center">
             <p className="pl-5">BDoctors è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti. <br></br>
-              <span className="font-bold"> Sei un medico? </span>Aggiungiti anche tu sulla nostra piattaforma.<br></br>
+              <span className="font-bold"> Sei un medico? </span>Iscriviti anche tu sulla nostra piattaforma.<br></br>
               <span className="font-bold"> Sei un paziente? </span>Trova il medico giusto in modo semplice e veloce.</p>
           </div>
           <div className="w-[35%] h-full">
-            <img src={aboutImg} className="w-full h-full object-fix" />
+            <img src={aboutImg} className=" object-cover w-full h-full object-fix" />
           </div>
         </div>
       </section >
@@ -55,8 +55,8 @@ function HomePage() {
 
                {speciality?.map(special => {
                 return (
-                  <div key={special?.id} className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center">
-                    <img src={special.icon} className="w-[50px] h-[50px] mb-3 "></img>
+                  <div key={special?.id} className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
+                    <img src={special.icon} className="w-[50px] h-[50px] mb-3"></img>
                     <p className="text-center">
                      <span className="text-gray-900 font-bold">{special?.name}</span>
                     </p>
