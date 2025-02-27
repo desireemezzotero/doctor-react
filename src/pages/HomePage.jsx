@@ -51,7 +51,7 @@ function HomePage() {
         <div className="items-center justify-center text-center content-center mt-[50px] bg-gray-200 py-[50px]">
             <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Le specializzazioni dei nostri dottori</h3>
           <div className="container mx-auto">
-              <div className=" p-4 border rounded-lg flex-wrap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
+              <div className=" p-4 border rounded-lg flex-wrap grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 justify-items-center">
 
                {speciality?.map(special => {
                 return (
