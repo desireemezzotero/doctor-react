@@ -46,25 +46,28 @@ function HomePage() {
             <img src={aboutImg} className="w-full h-full object-fix" />
           </div>
         </div>
+      </section >
 
-        <div className="items-center container justify-center text-center mt-[50px]">
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-[30px]">Le specializzazioni dei nostri dottori:</h3>
-          <div className="p-4 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 flex flex-wrap justify-center md:justify-center ">
+        <div className="items-center justify-center text-center content-center mt-[50px] bg-gray-200 py-[50px]">
+            <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Le specializzazioni dei nostri dottori</h3>
+          <div className="container mx-auto">
+              <div className=" p-4 border rounded-lg flex-wrap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-items-center">
 
-            {speciality?.map(special => {
-              return (
-                <div key={special?.id} className="flex w-full md:w-full lg:w-1/2">
-                  <img src={special.icon} className="w-[50px] h-[50px] mb-3 "></img>
-                  <p>
-                    <span className="text-gray-900 ml-7 font-bold">{special?.name}: </span>
-                    <span className="text-gray-900s ml-2">{special?.description}</span>
-                  </p>
-                </div>
-              )
-            })}
+               {speciality?.map(special => {
+                return (
+                  <div key={special?.id} className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center">
+                    <img src={special.icon} className="w-[50px] h-[50px] mb-3 "></img>
+                    <p className="text-center">
+                     <span className="text-gray-900 font-bold">{special?.name}</span>
+                    </p>
+                  </div>
+                )
+               })}
+             </div>
           </div>
         </div>
 
+        <section className="container  mt-[50px] mx-auto"> 
         <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center">I medici più ricercati</h3>
         <div className="px-1 flex justify-center my-[50px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
@@ -73,9 +76,9 @@ function HomePage() {
             ))}
           </div>
         </div>
+      </section>
 
 
-      </section >
     </>
   );
 }
