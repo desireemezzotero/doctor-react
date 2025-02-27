@@ -35,20 +35,20 @@ function HomePage() {
 
       <section className="container mt-[50px] mx-auto">
         <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-10 mt-10 text-center">Cosa offriamo</h3>
-      
+
         <div className="flex bg-white h-[200px] xl:mx-[170px] md:mx-[50px]">
           <div className=" w-[75%] flex items-center">
             <p className="pl-5">BDoctors è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti. <br></br>
-             <span className="font-bold"> Sei un medico? </span>Aggiungiti anche tu sulla nostra piattaforma.<br></br>
-             <span className="font-bold"> Sei un paziente? </span>Trova il medico giusto in modo semplice e veloce.</p>
+              <span className="font-bold"> Sei un medico? </span>Aggiungiti anche tu sulla nostra piattaforma.<br></br>
+              <span className="font-bold"> Sei un paziente? </span>Trova il medico giusto in modo semplice e veloce.</p>
           </div>
           <div className="w-[35%] h-full">
-           <img src={aboutImg} className="w-full h-full object-fix"/> 
+            <img src={aboutImg} className="w-full h-full object-fix" />
           </div>
         </div>
 
         <div className="items-center container justify-center text-center mt-[50px]">
-            <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-[30px]">Le specializzazioni dei nostri dottori:</h3>
+          <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-[30px]">Le specializzazioni dei nostri dottori:</h3>
           <div className="p-4 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 flex flex-wrap justify-center md:justify-center ">
 
             {speciality?.map(special => {
@@ -67,7 +67,7 @@ function HomePage() {
 
         <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center">I medici più ricercati</h3>
         <div className="px-1 flex justify-center my-[50px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {topDoctors.map(doctor => (
               <CardHomePage key={doctor.id} data={doctor} />
             ))}
