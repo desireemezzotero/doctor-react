@@ -1,0 +1,88 @@
+import { useGlobalContext } from "../context/GlobalContext";
+import { useEffect, useState } from "react";
+
+
+
+function NewDoctorForm() {
+   const { speciality, fechDataDoctors } = useGlobalContext();
+
+   //Default doctor data
+   const defaultDataDoctor = {
+      name: '',
+      surname: '',
+      telephone: '',
+      email: '',
+      name_address: '',
+   }
+
+   const [selectedSpecialities, setSelectedSpecialities] = useState([]);
+   const [doctorData, setDoctorData] = useState(defaultDataDoctor);
+
+   const specialityHandleChange = (e) => {
+      const { value, checked } = e.target;
+      if (checked) {
+         setSelectedSpecialities([...selectedSpecialities, value])
+      } else {
+         setSelectedSpecialities(selectedSpecialities.filter(id => id !== value)); // Rimuove se deselezionato
+      }
+   }
+
+   const doctorHandleChange = (e) => {
+      const { name, value } = e.target;
+      setDoctorData(prev => ({
+         ...prev,
+         [name]: value,
+      }))
+   }
+
+   const onDoctorSubmit = (e) => {
+      e.preventDefault();
+
+      const completeDoctorData = {
+         ...doctorData,
+         specialities: selectedSpecialities
+      }
+      console.log(completeDoctorData)
+      //Reset form
+      setDoctorData(defaultDataDoctor)
+      setSelectedSpecialities([])
+   }
+
+   useEffect(fechDataDoctors, []);
+   return (
+      <div className="debug">
+         <form action="#" onSubmit={onDoctorSubmit}>
+            <label htmlFor="d-name">Nome</label>
+            <input type="text" placeholder="Inserisci il tuo nome..." name="name" value={doctorData.name} onChange={doctorHandleChange} />
+            <label htmlFor="d-surname">Cognome</label>
+            <input type="text" placeholder="Inserisci il tuo cognome..." name="surname" value={doctorData.surname} onChange={doctorHandleChange} />
+            <label htmlFor="d-phone">Telefono</label>
+            <input type="text" placeholder="Inserisci il tuo numero..." name="telephone" value={doctorData.telephone} onChange={doctorHandleChange} />
+            <label htmlFor="d-mail">Email</label>
+            <input type="mail" placeholder="Inserisci la tua mail..." name="email" value={doctorData.email} onChange={doctorHandleChange} />
+            <label htmlFor="d-address">Indirizzo</label>
+            <input type="text" placeholder="Inserisci il tuo indirizzo..." name="name_address" value={doctorData.name_address} onChange={doctorHandleChange} />
+
+            <div>
+               <label htmlFor="d-speciality">Specializzazioni</label>
+               {speciality.map((element) => (
+                  <div key={element.id}>
+                     <input
+                        type="checkbox"
+                        id={`s-${element.name}`}
+                        value={element.id}
+                        checked={selectedSpecialities.includes(String(element.id))}
+                        onChange={specialityHandleChange}
+                     />
+                     <label>{element.name}</label>
+                  </div>
+               ))}
+            </div>
+
+            <button type="submit" className="bg-red-700 text-white p-3">Iscriviti</button>
+         </form>
+      </div>
+   )
+}
+
+export default NewDoctorForm

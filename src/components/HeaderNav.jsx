@@ -1,15 +1,15 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import logo from "../assets/img/logo.png"
 function HeaderNav() {
   return (
     <nav className="bg-teal-500 fixed w-full top-0 start-0 border-gray-200 z-50">
       <div className="max-w- screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-       
-      <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-         <img src={logo} className=" rounded-3xl h-8 transition-all duration-300 hover:scale-110" alt="Flowbite Logo" />
-         <span className="self-center text-2xl font-semibold whitespace-nowrap text-white transition-all duration-300 hover:scale-110">Bdoctors</span>
-      </NavLink>
-    
+
+        <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src={logo} className=" rounded-3xl h-8 transition-all duration-300 hover:scale-110" alt="Flowbite Logo" />
+          <span className="self-center text-2xl font-semibold whitespace-nowrap text-white transition-all duration-300 hover:scale-110">Bdoctors</span>
+        </NavLink>
+
 
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button className="mr-6">
@@ -19,7 +19,7 @@ function HeaderNav() {
               </svg>
             </NavLink>
           </button>
-          <button type="button" className="text-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-400 rounded-lg text-sm px-4 py-2 bg-teal-50 transition-all duration-300 hover:scale-110">Iscriviti</button>
+          <button type="button"><Link to='/new-doctor' className="text-teal-600 focus:ring-4 focus:outline-none focus:ring-teal-400 rounded-lg text-sm px-4 py-2 bg-teal-50 transition-all duration-300 hover:scale-110">Iscriviti</Link></button>
 
           <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden focus:outline-none focus:ring-2  focus:ring-teal-400 text-teal-50" aria-controls="navbar-sticky" aria-expanded="false">
             <span className="sr-only">Open main menu</span>
