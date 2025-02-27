@@ -9,6 +9,8 @@ const GlobalProvider = ({ children }) => {
   const [doctorsData, setDoctorsData] = useState([]);
   const [doctorData, setDoctorData] = useState([])
   const [speciality, setSpeciality] = useState([])
+  const [specialityData, setSpecialityData] = useState([])
+
   //funzione per la index
   const fechDataDoctors = () => {
     axios.get(apiUrl)
@@ -32,13 +34,26 @@ const GlobalProvider = ({ children }) => {
   })
  }
 
+ //funzione per stamapre i dottori con quella specializzazione 
+  const fechSpecialityById = (id) => {
+    axios.get(`${apiUrl}/speciality/${id}`)
+    .then(res=> {
+      setSpecialityData(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   const value = {
     fechDataDoctors,
     doctorsData,
     doctorData,
     fechDataDoctor,
     setSpeciality,
-    speciality
+    speciality,
+    fechSpecialityById,
+    specialityData
   }
 
   return (

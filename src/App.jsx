@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import DetailPage from "./pages/DetailPage";
 import AdvancePage from "./pages/AdvancePage";
 import NewDoctorPage from "./pages/NewDoctorPage";
+import SpecialitiesPage from "./pages/SpecialitiesPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path='/doctor/:id' Component={DetailPage} />
               <Route path='/advance' Component={AdvancePage} />
               <Route path='/new-doctor' Component={NewDoctorPage} />
+              <Route path='/speciality/:id' Component={SpecialitiesPage} />
             </Route>
           </Routes>
         </BrowserRouter>

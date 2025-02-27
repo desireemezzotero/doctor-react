@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import CarouselHomePage from "../components/CarouselHomePage";
 import CardHomePage from "../components/CardHomePage";
 import aboutImg from "../assets/img/about.jpg"
+import { NavLink } from "react-router-dom";
 
 function HomePage() {
-  const { fechDataDoctors, doctorsData, speciality } = useGlobalContext();
+  const { fechDataDoctors, doctorsData, speciality} = useGlobalContext();
   const [searchTerm, setSearchTerm] = useState('');
 
   const handlerChange = (e) => {
@@ -55,12 +56,16 @@ function HomePage() {
 
                {speciality?.map(special => {
                 return (
-                  <div key={special?.id} className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
-                    <img src={special.icon} className="w-[50px] h-[50px] mb-3"></img>
+                 <NavLink to={`/speciality/${special.id}`}>
+                   <div key={special?.id} className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
+                     <div className="h-12 w-12">
+                      <img src={special.icon} className="object-cover w-full h-full"></img>
+                     </div>
                     <p className="text-center">
                      <span className="text-gray-900 font-bold">{special?.name}</span>
                     </p>
                   </div>
+                  </NavLink>
                 )
                })}
              </div>
@@ -68,17 +73,16 @@ function HomePage() {
         </div>
 
         <section className="container  mt-[50px] mx-auto"> 
-        <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center">I medici più ricercati</h3>
-        <div className="px-1 flex justify-center my-[50px]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            {topDoctors.map(doctor => (
-              <CardHomePage key={doctor.id} data={doctor} />
-            ))}
+          <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center">I medici più ricercati</h3>
+          <div className="px-1 flex justify-center my-[50px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {topDoctors.map(doctor => (
+               <CardHomePage key={doctor.id} data={doctor} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-
+        </section>
+      
     </>
   );
 }
