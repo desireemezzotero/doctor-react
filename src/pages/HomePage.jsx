@@ -34,7 +34,7 @@ function HomePage() {
         <CarouselHomePage />
       </section>
       <section className="container mt-[50px] mx-auto px-4">
-        <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-10 mt-10">Cosa offriamo</h3>
+        <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-10 mt-10 text-center">Cosa offriamo</h3>
 
         <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[170px] md:mx-[50px] md:h-[200px] rounded-lg shadow-md">
           <div className="w-full md:w-[75%] flex items-center p-4 md:p-6">
