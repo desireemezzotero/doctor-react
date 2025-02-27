@@ -5,7 +5,7 @@ import { faLinkedin, faFacebook, faGoogle } from '@fortawesome/free-brands-svg-i
 const Footer = () => {
   return (
 
-    <footer className="bg-gray-800 text-white p-6 w-full">
+    <section className="bg-gray-800 text-white p-6 w-full">
       <div className="max-w-screen-xl grid grid-cols-1 md:grid-cols-3 items-center mx-auto p-4 gap-4">
 
         <div className="flex space-x-4 justify-center">
@@ -27,11 +27,11 @@ const Footer = () => {
         </div>
 
         <div className="flex justify-center">
-          <p>&copy; {new Date().getFullYear()} La tua azienda. Tutti i diritti riservati.</p>
+          <p>&copy; {new Date().getFullYear()} Bdoctors. Tutti i diritti riservati.</p>
         </div>
 
       </div>
-    </footer>
+    </section>
 
   );
 };

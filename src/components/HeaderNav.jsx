@@ -32,11 +32,11 @@ function HeaderNav() {
         <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-teal-500 md:space-x-8 md:flex-row md:mt-0 md:border-0">
             <li>
-              <NavLink to="/" className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:p-0" aria-current="page">HomePage</NavLink>
+              <NavLink to="/" className="block py-2 px-3 text-white rounded-sm md:bg-transparent md:p-0" aria-current="page">Home</NavLink>
             </li>
 
             <li>
-              <NavLink to="/advance" className="block py-2 px-3 text-white rounded-sm md:bg-transparent  md:p-0" aria-current="page">Advance</NavLink>
+              <NavLink to="/advance" className="block py-2 px-3 text-white rounded-sm md:bg-transparent  md:p-0" aria-current="page">Ricerca Avanzata</NavLink>
             </li>
           </ul>
         </div>
