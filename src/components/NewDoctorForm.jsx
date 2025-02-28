@@ -1,10 +1,11 @@
+import { data } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useEffect, useState } from "react";
 
 
 
 function NewDoctorForm() {
-   const { speciality, fechDataDoctors } = useGlobalContext();
+   const { speciality, addDoctor } = useGlobalContext();
 
    //Default doctor data
    const defaultDataDoctor = {
@@ -13,6 +14,8 @@ function NewDoctorForm() {
       telephone: '',
       email: '',
       name_address: '',
+      gender: '',
+      image: null
    }
 
    const [selectedSpecialities, setSelectedSpecialities] = useState([]);
@@ -29,10 +32,18 @@ function NewDoctorForm() {
 
    const doctorHandleChange = (e) => {
       const { name, value } = e.target;
-      setDoctorData(prev => ({
-         ...prev,
-         [name]: value,
-      }))
+
+      if (name === 'image') {
+         setDoctorData(prev => ({
+            ...prev,
+            image: e.target.files[0]
+         }))
+      } else {
+         setDoctorData(prev => ({
+            ...prev,
+            [name]: value,
+         }))
+      }
    }
 
    const onDoctorSubmit = (e) => {
@@ -42,13 +53,20 @@ function NewDoctorForm() {
          ...doctorData,
          specialities: selectedSpecialities
       }
-      console.log(completeDoctorData)
+
+      const dataToSend = new FormData();
+      for (let key in completeDoctorData) {
+         dataToSend.append(key, completeDoctorData[key]);
+      }
+
+      addDoctor(dataToSend)
+
       //Reset form
       setDoctorData(defaultDataDoctor)
       setSelectedSpecialities([])
    }
 
-   useEffect(fechDataDoctors, []);
+
    return (
       <div className="debug">
          <form action="#" onSubmit={onDoctorSubmit}>
@@ -62,6 +80,14 @@ function NewDoctorForm() {
             <input type="mail" placeholder="Inserisci la tua mail..." name="email" value={doctorData.email} onChange={doctorHandleChange} />
             <label htmlFor="d-address">Indirizzo</label>
             <input type="text" placeholder="Inserisci il tuo indirizzo..." name="name_address" value={doctorData.name_address} onChange={doctorHandleChange} />
+            <label htmlFor="d-gender">Genere</label>
+            <select name="gender" onChange={doctorHandleChange}>
+               <option>Genere</option>
+               <option value="M">M</option>
+               <option value="F">F</option>
+            </select>
+            <label htmlFor="d-imagee">Inserisci un'immagine</label>
+            <input type="file" name="image" onChange={doctorHandleChange} />
 
             <div>
                <label htmlFor="d-speciality">Specializzazioni</label>
