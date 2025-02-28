@@ -1,17 +1,17 @@
 import { createContext, useState, useContext } from "react";
 import axios from "axios";
+import { data } from "react-router-dom";
 
 const GlobalContext = createContext()
 
 const GlobalProvider = ({ children }) => {
-  //importazione apiUrl
-  const apiUrl = import.meta.env.VITE_API_URL
+  //Importazione apiUrl
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [doctorsData, setDoctorsData] = useState([]);
-  const [doctorData, setDoctorData] = useState([])
-  const [speciality, setSpeciality] = useState([])
-  const [specialityData, setSpecialityData] = useState([])
-
-  //funzione per la index
+  const [doctorData, setDoctorData] = useState([]);
+  const [speciality, setSpeciality] = useState([]);
+  const [specialityData, setSpecialityData] = useState([]);
+  //Funzione per stampare la lista completa dei dottori
   const fechDataDoctors = () => {
     axios.get(apiUrl)
       .then(res => {
@@ -23,37 +23,49 @@ const GlobalProvider = ({ children }) => {
       });
   }
 
-  //funzione per stampare un dottore
- const fechDataDoctor = (id) => {
-  axios.get(`${apiUrl}/${id}`)
-  .then(res => {
-    setDoctorData(res.data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
- }
-
- //funzione per stamapre i dottori con quella specializzazione 
-  const fechSpecialityById = (id) => {
-    axios.get(`${apiUrl}/speciality/${id}`)
-    .then(res=> {
-      setSpecialityData(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+  //Funzione per stampare un dottore
+  const fechDataDoctor = (id) => {
+    axios.get(`${apiUrl}/${id}`)
+      .then(res => {
+        setDoctorData(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
-  //funzione per aggiungere una recensione
-  const addReview = (id,reviewData) => {
-   axios.post(`${apiUrl}/${id}/reviews`,reviewData, {headers: {'content-Type': 'application/json'}})
-   .then(res => 
-    fechDataDoctor(id),
-   )
-   .catch(err => 
-    console.log(err)
-   )
+  //Funzione per stamapre i dottori con una determinata specializzazione 
+  const fechSpecialityById = (id) => {
+    axios.get(`${apiUrl}/speciality/${id}`)
+      .then(res => {
+        setSpecialityData(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
+
+  //Funzione per aggiungere una nuova recensione
+  const addReview = (id, reviewData) => {
+    axios.post(`${apiUrl}/${id}/reviews`, reviewData, { headers: { 'content-Type': 'application/json' } })
+      .then(res =>
+        fechDataDoctor(id),
+      )
+      .catch(err =>
+        console.log(err)
+      )
+  }
+
+  //Funzione per aggiungere un nuovo dottore
+  const addDoctor = (dataToSend) => {
+    console.log(dataToSend)
+    axios.post(apiUrl, dataToSend, { headers: { 'Content-Type': 'multipart/form-data' } })
+      .then(
+        console.log('dottore aggiunto')
+      )
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const value = {
@@ -65,7 +77,8 @@ const GlobalProvider = ({ children }) => {
     speciality,
     fechSpecialityById,
     specialityData,
-    addReview
+    addReview,
+    addDoctor
   }
 
   return (
