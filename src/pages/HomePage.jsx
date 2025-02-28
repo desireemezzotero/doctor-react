@@ -57,8 +57,8 @@ function HomePage() {
 
             {speciality?.map(special => {
               return (
-                <NavLink to={`/speciality/${special.id}`}>
-                  <div key={special?.id} className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
+                <NavLink key={special?.id} to={`/speciality/${special.id}`}>
+                  <div className="w-full md:w-full lg:w-1/2 flex flex-col items-center justify-center transition-all duration-300 hover:scale-110">
                     <div className="h-12 w-12">
                       <img src={special.icon} className="object-cover w-full h-full"></img>
                     </div>
