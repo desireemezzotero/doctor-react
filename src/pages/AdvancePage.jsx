@@ -9,11 +9,12 @@ import FilteredSpecialities from "../components/FilteredSpecialities";
 function AdvancePage() {
   const { fechDataDoctors, doctorsData, specialityData } = useGlobalContext()
   const [searchTerm, setSearchTerm] = useState('')
+  const [filterDoctors, setFilterDoctors] = useState([])
 
   const handlerChange = (e) => {
     setSearchTerm(e.target.value)
   }
-
+ 
   const filteredDoctors = doctorsData.filter(doc => {
     if (doc.name.toLowerCase().includes(searchTerm.toLowerCase()) || doc.surname.toLowerCase().includes(searchTerm.toLowerCase())) {
       return doc
@@ -47,20 +48,20 @@ function AdvancePage() {
             </div>
           </form>
 
-          <FilteredSpecialities fechDataDoctors={fechDataDoctors} />
-
-        </div>
-
-        {filteredDoctors.length === 0 ?
-          <div className="border bg-gray-200 text-center mb-5 mt-5">
-            <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-4 text-center">
-              Non c'è nessun medico con questo nome, controlla di averlo scritto bene
-            </h3>
-          </div>
-          :
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center"> Ecco tutti i medici iscritti </h3>
-        }
-
+         <FilteredSpecialities/>
+          
+        </div> 
+        
+          {filteredDoctors.length === 0 ? 
+                <div className="border bg-gray-200 text-center mb-5 mt-5">
+                  <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-4 text-center">
+                    Non c'è nessun medico con questo nome, controlla di averlo scritto bene
+                   </h3> 
+                 </div>
+                  : 
+                    <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center"> Ecco tutti i medici iscritti </h3> 
+               }
+               
         <div className="container px-1 flex justify-center my-[50px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {specialityData.length === 0 ?
