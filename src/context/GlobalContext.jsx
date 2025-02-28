@@ -11,6 +11,8 @@ const GlobalProvider = ({ children }) => {
   const [doctorData, setDoctorData] = useState([]);
   const [speciality, setSpeciality] = useState([]);
   const [specialityData, setSpecialityData] = useState([]);
+  const [review, setReview] = useState([])
+
   //Funzione per stampare la lista completa dei dottori
   const fechDataDoctors = () => {
     axios.get(apiUrl)
@@ -68,6 +70,17 @@ const GlobalProvider = ({ children }) => {
       })
   }
 
+  //Funzione per stampare i dottori con una determinata recensione 
+  const fechSpecialityByReview = (id) => {
+    axios.get(`${apiUrl}/reviews/${id}`)
+    .then(res => {
+      setReview(res.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
   const value = {
     fechDataDoctors,
     doctorsData,
@@ -78,7 +91,8 @@ const GlobalProvider = ({ children }) => {
     fechSpecialityById,
     specialityData,
     addReview,
-    addDoctor
+    addDoctor,
+    fechSpecialityByReview
   }
 
   return (

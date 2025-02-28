@@ -59,7 +59,7 @@ function AdvancePage() {
           {filteredDoctors.length === 0 ? 
                 <div className="border bg-gray-200 text-center mb-5 mt-5">
                   <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-4 text-center">
-                    Non c'è nessun medico con questo nome, controlla di averlo scritto bene
+                    Non c'è nessun medico secondo la sua ricerca
                    </h3> 
                  </div>
                   : 
