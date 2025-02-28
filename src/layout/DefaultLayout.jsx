@@ -8,7 +8,7 @@ function DefaultLayout() {
       <header>
         <HeaderNav />
       </header>
-      <main className="mt-[68px] min-h-[calc(100vh-178px)]">
+      <main className="mt-[64px] min-h-[calc(100vh-178px)]">
         <Outlet />
       </main>
       <footer>

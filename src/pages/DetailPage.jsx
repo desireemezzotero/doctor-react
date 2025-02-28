@@ -6,14 +6,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import StarsRating from "../components/StarsRating";
+import NewReviewForm from "../components/NewReviewForm";
 
 function DetailPage() {
   const { id } = useParams();
   const { doctorData, fechDataDoctor } = useGlobalContext();
 
   const { doctorName, doctorSurname, doctorTelephone, doctorMail, image_url, address, average_vote, specializations, reviews } = doctorData;
+
   useEffect(() => {
-    fechDataDoctor(id);
+    fechDataDoctor(id),
+      window.scrollTo(0, 0)
   }, [id]);
 
   return (
@@ -61,16 +64,16 @@ function DetailPage() {
 
       <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 text-center mt-5">Recensioni:</h3>
       {reviews?.[0]?.name !== null ? (
-        <div className="flex items-center justify-center mt-4 mx-auto xl:mx-[170px] md:mx-[50px]">
-          <div className="p-4 border flex w-full border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 ">
-            <div className="w-[40%] text-center items-center justify-items-center py-3">
-              <h4 className="font-bold">
-                Voto medio:
-              </h4>
-              <StarsRating ratingVote={average_vote} />
-            </div>
 
-            <div className="flow-root w-[60%]">
+        <div className="mt-4 mx-auto xl:mx-[170px] md:mx-[50px]">
+          <div className="w-[100%] py-3 text-center bg-gray-100">
+            <h4 className="font-bold">Voto medio:</h4>
+            <StarsRating ratingVote={average_vote} />
+          </div>
+          <div className="p-4 border flex w-full border-gray-200 rounded-lg shadow-sm">
+
+
+            <div className="flow-root" id="#reviews">
               <ul role="list" className="divide-y divide-gray-200">
                 {reviews?.map(review => {
                   return (
@@ -82,11 +85,11 @@ function DetailPage() {
                         </div>
 
                         <div>
-                          <p className="font-bold flex">{review.title}:
-                            <span className="pl-2">
+                          <div className="font-bold flex items-center justify-between">{review.title}:
+                            <span className="mb-2">
                               <StarsRating ratingVote={review.vote} />
                             </span>
-                          </p>
+                          </div>
                           <p className="text-[10px]"> {review.date}</p>
                           <p className="font-bold text-[13px]">{review.name}</p>
                           <p>{review.description}</p>
@@ -103,6 +106,7 @@ function DetailPage() {
           Nessun utente ha lasciato una recensione!
         </h3>
       )}
+      <NewReviewForm doctorId={id} />
     </div >
   );
 }

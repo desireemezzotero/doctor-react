@@ -45,6 +45,17 @@ const GlobalProvider = ({ children }) => {
     })
   }
 
+  //funzione per aggiungere una recensione
+  const addReview = (id,reviewData) => {
+   axios.post(`${apiUrl}/${id}/reviews`,reviewData, {headers: {'content-Type': 'application/json'}})
+   .then(res => 
+    fechDataDoctor(id),
+   )
+   .catch(err => 
+    console.log(err)
+   )
+  }
+
   const value = {
     fechDataDoctors,
     doctorsData,
@@ -53,7 +64,8 @@ const GlobalProvider = ({ children }) => {
     setSpeciality,
     speciality,
     fechSpecialityById,
-    specialityData
+    specialityData,
+    addReview
   }
 
   return (
