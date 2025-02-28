@@ -8,8 +8,7 @@ function FilteredSpecialities({ fechDataDoctors }) {
   const { speciality, fechSpecialityById, } = useGlobalContext()
 
   const handlerClick = (e) => {
-    console.log(e.target.value)
-    //fechSpecialityById(e.target.value)
+    fechSpecialityById(e.target.value)
   }
 
   return (
@@ -28,10 +27,10 @@ function FilteredSpecialities({ fechDataDoctors }) {
           {/* Dropdown menu */}
           <div id="dropdownNavbar" className="absolute hidden group-focus-within:block group-hover:block z-10 w-56 p-3 bg-white rounded-lg shadow" >
 
-            <select className="space-y-2 text-sm" defaultValue="default-option">
+            <select className="space-y-2 text-sm" defaultValue="default-option" onChange={handlerClick}>
               <option disabled value="default-option">Specializzazioni</option>
               {speciality.map(speciality => (
-                <option value={speciality.id} key={speciality.id} onChange={handlerClick}>
+                <option value={speciality.id} key={speciality.id}>
                   {speciality.name}
                 </option>
               )

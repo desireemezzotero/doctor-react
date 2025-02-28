@@ -20,6 +20,7 @@ function AdvancePage() {
     }
   })
 
+
   useEffect(fechDataDoctors, [])
 
   return (
@@ -62,9 +63,12 @@ function AdvancePage() {
 
         <div className="container px-1 flex justify-center my-[50px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {filteredDoctors.map(doctor => (
-              <CardHomePage key={doctor.id} data={doctor} />
-            ))}
+            {specialityData.length === 0 ?
+              filteredDoctors.map(doctor => (
+                <CardHomePage key={doctor.id} data={doctor} />
+              )) : specialityData.map(doctor => (
+                <CardHomePage key={doctor.id} data={doctor} />
+              ))}
           </div>
         </div>
       </section>
