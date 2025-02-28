@@ -14,8 +14,12 @@ function AdvancePage() {
   const handlerChange = (e) => {
     setSearchTerm(e.target.value)
   }
- 
-  const filteredDoctors = doctorsData.filter(doc => {
+
+  const updateFilterDoctors = (doctor) => {
+    setFilterDoctors(doctor)
+  }
+  
+  const filteredDoctors = filterDoctors.filter(doc => {
     if (doc.name.toLowerCase().includes(searchTerm.toLowerCase()) || doc.surname.toLowerCase().includes(searchTerm.toLowerCase())) {
       return doc
     }
@@ -48,7 +52,7 @@ function AdvancePage() {
             </div>
           </form>
 
-         <FilteredSpecialities/>
+         <FilteredSpecialities updateFilterDoctors={updateFilterDoctors}/>
           
         </div> 
         
