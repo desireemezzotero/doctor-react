@@ -2,17 +2,34 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSliders } from "@fortawesome/free-solid-svg-icons";
 
 import { useGlobalContext } from "../context/GlobalContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function FilteredSpecialities() {
-  const {speciality,fechSpecialityById, } = useGlobalContext()
+function FilteredSpecialities({updateFilterDoctors}) {
+  const {speciality, doctorsData} = useGlobalContext()
+  const [selected, setSelected] = useState([])
+  const [arraySpeciality, setArraySpeciality] = useState(doctorsData)
 
   const handlerClick = (e) => {
-   console.log(e.target.value)
-   fechSpecialityById(e.target.value)
-  }
+   const {value,checked} = e.target
 
-  useEffect(() => {fechSpecialityById()}, [])
+   if (checked) {
+    setSelected((prev) => [...prev, value]);
+   } else {
+    setSelected((prev) => prev.filter(id => id !== value));
+   }
+  }
+ 
+  useEffect(() => {
+    if (selected.length === 0) {
+      updateFilterDoctors(doctorsData); // Se nessuna specializzazione è selezionata, mostra tutti i dottori
+    } else {
+      // Filtro dei dottori che corrispondono alle specializzazioni selezionate
+      const filteredDoctors = doctorsData.filter((doctor) =>
+        selected.some((selec) => doctor.name_speciality.includes(selec))
+      );
+      updateFilterDoctors(filteredDoctors);
+    }
+  }, [selected, doctorsData])
 
   return (
     <div className="flex items-center justify-center p-4">
@@ -43,7 +60,7 @@ function FilteredSpecialities() {
                         <input
                          id={`speciality-${speciali.id}`}
                          type="checkbox"
-                         value={speciali.id}
+                         value={speciali.name}
                          className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500"
                          onClick={handlerClick}
                          />
