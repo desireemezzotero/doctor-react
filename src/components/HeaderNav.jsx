@@ -36,7 +36,7 @@ function HeaderNav() {
             </li>
 
             <li>
-              <NavLink to="/advance" className="block py-2 px-3 text-white rounded-sm md:bg-transparent  md:p-0" aria-current="page">Ricerca Avanzata</NavLink>
+              <NavLink to="/advance" className="block py-2 px-3 text-white rounded-sm md:bg-transparent  md:p-0" aria-current="page">I Dottori</NavLink>
             </li>
           </ul>
         </div>
