@@ -3,10 +3,9 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
-import StarsRating from "../components/StarsRating";
-import NewReviewForm from "../components/NewReviewForm";
+import Reviews from "../components/Reviews";
 
 function DetailPage() {
   const { id } = useParams();
@@ -47,7 +46,7 @@ function DetailPage() {
         </div>
       </div>
 
-      <div className="flex items-center container mx-auto justify-center xl:mx-[170px] md:mx-[50px]">
+      <div className="flex items-center container mx-auto justify-center">
         <div className="p-4 w-full border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
           <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Specializzazioni:</h3>
           {specializations?.map((speciality) => (
@@ -61,52 +60,16 @@ function DetailPage() {
           ))}
         </div>
       </div>
-
-      <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 text-center mt-5">Recensioni:</h3>
+     
       {reviews?.[0]?.name !== null ? (
-
-        <div className="mt-4 mx-auto xl:mx-[170px] md:mx-[50px]">
-          <div className="w-[100%] py-3 text-center bg-gray-100">
-            <h4 className="font-bold">Voto medio:</h4>
-            <StarsRating ratingVote={average_vote} />
-          </div>
-          <div className="p-4 border flex w-full border-gray-200 rounded-lg shadow-sm">
-
-
-            <div className="flow-root" id="#reviews">
-              <ul role="list" className="divide-y divide-gray-200">
-                {reviews?.map(review => {
-                  return (
-                    <li className="py-3 sm:py-4" key={review.id}>
-                      <div className="flex items-center">
-
-                        <div className="shrink-0 mr-3">
-                          <FontAwesomeIcon icon={faUser} className="text-black w-8 h-8" />
-                        </div>
-
-                        <div>
-                          <div className="font-bold flex items-center justify-between">{review.title}:
-                            <span className="mb-2">
-                              <StarsRating ratingVote={review.vote} />
-                            </span>
-                          </div>
-                          <p className="text-[10px]"> {review.date}</p>
-                          <p className="font-bold text-[13px]">{review.name}</p>
-                          <p>{review.description}</p>
-                        </div>
-                      </div>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </div>
+        <div className="mt-4">
+          <Reviews reviews = {reviews} average_vote={average_vote} doctorId={id} doctorName={doctorName} doctorSurname={doctorSurname}/>
         </div>) : (
         <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 text-center">
           Nessun utente ha lasciato una recensione!
         </h3>
-      )}
-      <NewReviewForm doctorId={id} />
+       )}
+
     </div >
   );
 }
