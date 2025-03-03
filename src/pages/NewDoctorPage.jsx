@@ -2,8 +2,8 @@ import NewDoctorForm from "../components/NewDoctorForm"
 
 function NewDoctorPage() {
   return (
-    <section>
-      <NewDoctorForm/>
+    <section className="container mx-auto mt-[64px]">
+      <NewDoctorForm />
     </section>
   )
 }
