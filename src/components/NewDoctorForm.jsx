@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 function NewDoctorForm() {
-   const { speciality, addDoctor } = useGlobalContext();
+   const { speciality, addDoctor, fechDataDoctors } = useGlobalContext();
 
    //Default doctor data
    const defaultDataDoctor = {
@@ -66,7 +66,7 @@ function NewDoctorForm() {
       setSelectedSpecialities([])
    }
 
-
+   useEffect(fechDataDoctors, [])
    return (
       <div className="debug">
          <form action="#" onSubmit={onDoctorSubmit}>
