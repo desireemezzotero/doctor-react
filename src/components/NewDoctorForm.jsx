@@ -36,7 +36,7 @@ function NewDoctorForm() {
       if (name === 'image') {
          setDoctorData(prev => ({
             ...prev,
-            image: e.target.files[0]
+            image: e.target.files[0].name
          }))
       } else {
          setDoctorData(prev => ({
@@ -46,24 +46,42 @@ function NewDoctorForm() {
       }
    }
 
+   const image =() => {
+      let imageToSend = doctorData.image
+
+      if(!imageToSend) {
+         imageToSend = doctorData.gender === "M" ? 'placeholder_male.jpg' : 'placeholder_female.jpg'
+      }
+
+      if (typeof imageToSend === "string") {
+         const fakeFile = new File([imageToSend], imageToSend.split('/').pop(), {
+            type: "image/jpeg", // Puoi scegliere il tipo di file appropriato
+         });
+         imageToSend = fakeFile; // Sostituiamo con il file fittizio
+      }
+
+      return {
+         ...doctorData,
+         image : imageToSend,
+         specialities : selectedSpecialities
+      }
+   }
+
    const onDoctorSubmit = (e) => {
       e.preventDefault();
-
-      const completeDoctorData = {
-         ...doctorData,
-         specialities: selectedSpecialities
-      }
+  
+      const completeDoctorData = image()
+      console.log(completeDoctorData)
 
       const dataToSend = new FormData();
       for (let key in completeDoctorData) {
          dataToSend.append(key, completeDoctorData[key]);
-      }
+      } 
 
-      addDoctor(dataToSend)
-
+     addDoctor(dataToSend) 
       //Reset form
-      setDoctorData(defaultDataDoctor)
-      setSelectedSpecialities([])
+     setDoctorData(defaultDataDoctor)
+     setSelectedSpecialities([]) 
    }
 
    useEffect(fechDataDoctors, [])

@@ -60,7 +60,6 @@ const GlobalProvider = ({ children }) => {
 
   //Funzione per aggiungere un nuovo dottore
   const addDoctor = (dataToSend) => {
-    console.log(dataToSend)
     axios.post(apiUrl, dataToSend, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(
         console.log('dottore aggiunto')
