@@ -35,7 +35,7 @@ function CarouselHomePage() {
             <h1 className='text-3xl lg:text-5xl text-white'>Trova il medico giusto <br></br>per te in pochi click.</h1>
             <h4 className='text-lg lg:text-xl mt-6 text-white'>Scegli tra centinaia di specialisti verificati <br></br> e prenota subito la tua visita!</h4>
           </div>
-          <button className='bg-white py-[15px] px-[40px] mt-6 lg:mt-0 hover:bg-gray-200'><Link to='/advance'>Trova un Dottore!</Link></button>
+          <button><Link to='/advance' className='bg-white py-[15px] px-[40px] mt-6 lg:mt-0 hover:bg-gray-200 block'>Trova un Dottore!</Link></button>
         </div>
       </div>
     </div>

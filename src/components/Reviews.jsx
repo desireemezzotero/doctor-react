@@ -40,45 +40,39 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
 
   return (
     <>
-      <div className="border-l-4 border-teal-500 h-10 flex items-center mb-4">
+      <div className="border-l-4 border-teal-500 h-10 flex items-center justify-between mb-4">
         <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Recensioni</h3>
+        <div className="shrink-0 space-y-4 ml-3 text-center">
+          <button type="button" data-modal-target="review-modal" data-modal-toggle="review-modal" className="mb-2 me-2 rounded-lg bg-teal-500 p-2 hover:bg-teal-600 text-white" >
+            Scrivi una recensione
+          </button>
+        </div>
       </div>
 
-      <section className="py-8 container mx-auto">
+      <section className="py-8 container m-auto px-3">
         <div className="flex">
           <p className="text-2xl font-semibold text-gray-900 mr-2">{average_vote} su 5</p>
 
           <div>
             <StarsRating ratingVote={average_vote} />
           </div>
-
-          <div className="shrink-0 space-y-4 ml-3">
-            {/* scrivi una recensione */}
-            <button type="button" data-modal-target="review-modal" data-modal-toggle="review-modal" className="mb-2 me-2 rounded-lg bg-teal-500 p-2 hover:bg-teal-600" onClick={openModal}>
-              Scrivi una recensione
-            </button>
-          </div>
         </div>
 
-        {/* MAPPO LE RECENSIONI */}
         <div className="mt-6">
           {reviews?.map(re => {
             return (
               <div className="pb-6 sm:flex items-center sm:justify-center" key={re.id}>
                 <div className="shrink-0 space-y-2 sm:w-48 md:w-72">
-                  {/* STELLINA */}
+
                   <div className="flex items-center gap-0.5">
                     <StarsRating ratingVote={re.vote} />
                   </div>
 
-                  {/* NOME E DATA */}
                   <div className="space-y-0.5">
                     <p className="text-base font-semibold text-gray-900">{re.name}</p>
                     <p className="text-sm font-normal text-gray-500">{re.date}</p>
                   </div>
 
-
-                  {/* VERIFICATO */}
                   <div className="inline-flex items-center gap-1">
                     <svg className="h-5 w-5 text-primary-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                       <path
@@ -91,7 +85,6 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
                   </div>
                 </div>
 
-                {/* DESCRIZIONE RECENSIONE + TITOLO */}
                 <div className="mt-4 min-w-0 flex-1  pt-10">
                   <p className="text-base text-black font-bold">{re.title}</p>
                   <p className="text-base font-normal text-gray-500">{re.description}</p>
