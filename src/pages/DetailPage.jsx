@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import Reviews from "../components/Reviews";
 
@@ -19,15 +19,22 @@ function DetailPage() {
   }, [id]);
 
   return (
-    <div className="container mx-auto pt-[50px] mb-10">
-      <div className="doctor-card flex flex-wrap items-center justify-center gap-5">
-        <div className="mr-[40px]">
-          <img className="rounded max-w-[450px] max-h-[300px]" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
-        </div>
+    <section className="container mx-auto pt-[50px]">
+      <div className="border-l-4 border-teal-500 h-10 flex items-center mb-[50px]">
+        <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Dettagli Dottore</h3>
+      </div>
 
-        <div className="p-4 align-middle">
-          <h3 className="text-3xl font-semibold tracking-tight text-gray-900">{`${doctorName} ${doctorSurname}`}</h3>
-          <div className="description-doctor text-lg pt-5">
+      <div className="mx-2 lg:flex lg:justify-around">
+
+        <div className="md:flex">
+          <div className="sm:flex sm:justify-center">
+            <div className="max-w-[100%]">
+              <img className="w-full" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
+            </div>
+          </div>
+
+          <div className="description-doctor text-lg mt-10 md:ml-[100px]">
+            <h3 className="text-3xl font-semibold tracking-tight text-gray-900">{`${doctorName} ${doctorSurname}`}</h3>
             <p className="mb-3">
               <FontAwesomeIcon icon={faPhone} className="text-black" size="1x" />
               <span className="text-gray-900 pl-3">{doctorTelephone}</span>
@@ -44,33 +51,34 @@ function DetailPage() {
             </p>
           </div>
         </div>
-      </div>
 
-      <div className="flex items-center container mx-auto justify-center">
-        <div className="p-4 w-full border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100">
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3">Specializzazioni:</h3>
+        <div className="pt-10 md:ml-10">
+          <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-5">Specializzazioni:</h3>
           {specializations?.map((speciality) => (
-            <div key={speciality?.specialityName} className="flex">
-              <img src={speciality?.specialityIcon} className="w-[50px] h-[50px] mb-3" alt={speciality?.specialityName} />
+            <div key={speciality?.specialityName} className="flex mb-3">
+              <img src={speciality?.specialityIcon} className="w-[50px] h-[50px] mr-4" alt={speciality?.specialityName} />
               <p>
-                <span className="text-gray-900 ml-7 font-bold">{speciality?.specialityName}: </span>
-                <span className="text-gray-900 ml-2">{speciality?.specialityDescription}</span>
+                <span className="block text-gray-900 font-bold">{speciality?.specialityName}: </span>
+                <span className="text-gray-900">{speciality?.specialityDescription}</span>
               </p>
             </div>
           ))}
         </div>
-      </div>
-     
-      {reviews?.[0]?.name !== null ? (
-        <div className="mt-4">
-          <Reviews reviews = {reviews} average_vote={average_vote} doctorId={id} doctorName={doctorName} doctorSurname={doctorSurname}/>
-        </div>) : (
-        <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 text-center">
-          Nessun utente ha lasciato una recensione!
-        </h3>
-       )}
 
-    </div >
+      </div>
+      <div className="container">
+        {reviews?.[0]?.name !== null ? (
+          <div className="mt-[50px]">
+            <Reviews reviews={reviews} average_vote={average_vote} doctorId={id} doctorName={doctorName} doctorSurname={doctorSurname} />
+          </div>) : (
+          <h3 className="text-xl font-semibold tracking-tight text-gray-900 my-3 text-center">
+            Nessun utente ha lasciato una recensione!
+          </h3>
+        )}
+      </div>
+
+
+    </section >
   );
 }
 

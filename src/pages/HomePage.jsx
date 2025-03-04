@@ -35,28 +35,28 @@ function HomePage() {
         <CarouselHomePage />
       </section>
 
-      <section className="container mt-[50px] mx-auto px-4">
-        <div className="border-l-4 border-teal-500 h-10 flex items-center">
-         <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I nostri servizi</h3>
+      <section className="container mt-[50px] mx-auto ">
+        <div className="border-l-4 border-teal-500 h-10 flex items-center mb-10">
+          <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I nostri servizi</h3>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[250px] md:mx-[150px] md:h-[200px] rounded-lg shadow-md">
+        <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[250px] md:mx-[150px] md:h-[200px] rounded-lg">
           <div className="w-full md:w-[75%] flex items-center p-4 md:p-6 ">
             <div className="pl-5 md:pl-0 md:text-left md:ml-4">
               <p className="mb-2">
-               <span className="font-bold"> Bdoctors </span>
-               è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti.
-              </p> 
+                <span className="font-bold"> Bdoctors </span>
+                è una piattaforma innovativa progettata per favorire l'incontro tra pazienti e medici specialisti.
+              </p>
 
               <p className="mb-2">
-               <span className="font-bold"> Sei un medico? </span><br />
+                <span className="font-bold"> Sei un medico? </span><br />
                 Iscriviti anche tu sulla nostra piattaforma.
-              </p> 
+              </p>
 
               <p className="mb-2">
-               <span className="font-bold"> Sei un paziente? </span><br />
-               Trova il medico giusto in modo semplice e veloce.
-              </p> 
+                <span className="font-bold"> Sei un paziente? </span><br />
+                Trova il medico giusto in modo semplice e veloce.
+              </p>
             </div>
           </div>
           <div className="w-full md:w-[35%] h-[200px] md:h-full">
@@ -76,7 +76,7 @@ function HomePage() {
             {speciality?.map(special => {
               return (
                 <NavLink key={special?.id} to={`/speciality/${special.id}`}>
-                  <div className="flex flex-col items-center justify-center transition-all duration-300 hover:scale-110 bg-white h-[220px] w-[150px] mt-6">
+                  <div className="flex flex-col items-center justify-center bg-gray-200 transition-all duration-100 hover:scale-105 hover:bg-gray-100 hover:shadow-xl h-[220px] w-[150px] mt-6">
 
                     <div className="">
                       <img src={special.icon} className="object-cover w-full h-full"></img>
@@ -96,9 +96,9 @@ function HomePage() {
       </div>
 
       <section className="container  mt-[50px] mx-auto">
-          <div className="border-l-4 border-teal-500 h-10 flex items-center mb-4">
-            <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I medici più ricercati</h3>
-          </div>
+        <div className="border-l-4 border-teal-500 h-10 flex items-center mb-4">
+          <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I medici più ricercati</h3>
+        </div>
         <div className="px-1 flex justify-center my-[50px]">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {topDoctors.map(doctor => (
@@ -109,25 +109,25 @@ function HomePage() {
       </section>
 
       <section className="container mx-auto">
-          <div className="border-l-4 border-teal-500 h-10 flex items-center mb-4">
-            <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Sei un dottore?</h3>
-          </div>
+        <div className="border-l-4 border-teal-500 h-10 flex items-center mb-4">
+          <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Sei un dottore?</h3>
+        </div>
 
-        <div className="text-center bg-teal-500 mx-[200px] border rounded-2xl mb-5">
+        <div className="bg-teal-500 mx-[200px] border rounded-2xl mb-5">
           <div className="h-[250px] flex text-white justify-center items-center ">
 
             <div className="w-[40%]">
-               <img src={doctor} alt="" className="w-52"/>
+              <img src={doctor} alt="" className="w-52" />
             </div>
-            
+
             <div>
               <p className="text-lg">Sei un medico? Iscriviti ora e fai crescere la tua attività!Con la registazione, potrai ricevere prenotazione online dai pazienti e ottenere maggiore visibilità grazie ad un profilo personale dedicato. Non perdere questa opportunità! </p>
             </div>
           </div>
 
-          <NavLink to= "/new-doctor">
-            <div className="h-[50px] bg-white border rounded-lg flex justify-center items-center ">
-             <h3 className="text-lg pl-2 font-semibold tracking-tight text-gray-900">ISCRIVITI ORA!</h3>
+          <NavLink to="/new-doctor">
+            <div className="h-[50px] bg-white border rounded-lg flex justify-center items-center hover:bg-gray-100">
+              <h3 className="text-lg pl-2 font-semibold tracking-tight text-gray-900">ISCRIVITI ORA!</h3>
             </div>
           </NavLink>
         </div>

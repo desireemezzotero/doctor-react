@@ -20,7 +20,7 @@ function CardHomePage({ data }) {
 
                     <div className="flex justify-end mt-5 mb-2">
                      <button className="flex justify-end">
-                        <NavLink to={`/doctor/${id}`} className="text-teal-50 bg-teal-500 focus:ring-4 focus:outline-none focus:ring-teal-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Dettagli</NavLink>
+                        <NavLink to={`/doctor/${id}`} className="text-teal-50 bg-teal-500  hover:bg-teal-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Dettagli</NavLink>
                      </button>
                     </div>
                 </div>
