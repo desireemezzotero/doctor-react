@@ -110,7 +110,7 @@ function Reviews({reviews,average_vote,doctorId,doctorName,doctorSurname}) {
 
 
     {/* Modal */}
-    <div className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900 bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`} >
+    <div id="review-modal" className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900 bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`} >
       <div className="relative w-full max-w-2xl p-4">
         <div className="relative rounded-lg bg-gray-200 shadow">
 
