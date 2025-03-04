@@ -35,12 +35,12 @@ function HomePage() {
         <CarouselHomePage />
       </section>
 
-      <section className="container mt-[50px] mx-auto ">
-        <div className="border-l-4 border-teal-500 h-10 flex items-center mb-10">
+      <section className="container mt-[50px] mx-auto px-4">
+        <div className="border-l-4 border-teal-500 h-10 flex items-center">
           <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I nostri servizi</h3>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[250px] md:mx-[150px] md:h-[200px] rounded-lg">
+        <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[250px] md:mx-[150px] md:h-[200px] rounded-lg shadow-md">
           <div className="w-full md:w-[75%] flex items-center p-4 md:p-6 ">
             <div className="pl-5 md:pl-0 md:text-left md:ml-4">
               <p className="mb-2">
@@ -76,7 +76,7 @@ function HomePage() {
             {speciality?.map(special => {
               return (
                 <NavLink key={special?.id} to={`/speciality/${special.id}`}>
-                  <div className="flex flex-col items-center justify-center bg-gray-200 transition-all duration-100 hover:scale-105 hover:bg-gray-100 hover:shadow-xl h-[220px] w-[150px] mt-6">
+                  <div className="flex flex-col items-center justify-center transition-all duration-300 hover:scale-110 bg-white h-[220px] w-[150px] mt-6">
 
                     <div className="">
                       <img src={special.icon} className="object-cover w-full h-full"></img>
@@ -113,20 +113,20 @@ function HomePage() {
           <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Sei un dottore?</h3>
         </div>
 
-        <div className="bg-teal-500 mx-[200px] border rounded-2xl mb-5">
-          <div className="h-[250px] flex text-white justify-center items-center ">
+        <div className="text-center bg-teal-500 mx-auto border rounded-2xl mb-5 max-w-xl">
+          <div className="h-auto flex flex-col text-white justify-center items-center md:h-[250px] md:flex-row px-4 py-4">
 
-            <div className="w-[40%]">
-              <img src={doctor} alt="" className="w-52" />
+            <div className="w-full flex justify-center md:w-[40%]">
+              <img src={doctor} alt="" className="w-24 md:w-52" />
             </div>
 
-            <div>
-              <p className="text-lg">Sei un medico? Iscriviti ora e fai crescere la tua attività!Con la registazione, potrai ricevere prenotazione online dai pazienti e ottenere maggiore visibilità grazie ad un profilo personale dedicato. Non perdere questa opportunità! </p>
+            <div className="mt-4 md:mt-0 md:ml-4">
+              <p className="text-lg">Sei un medico? Iscriviti ora e fai crescere la tua attività! Con la registrazione, potrai ricevere prenotazione online dai pazienti e ottenere maggiore visibilità grazie ad un profilo personale dedicato. Non perdere questa opportunità!</p>
             </div>
           </div>
 
           <NavLink to="/new-doctor">
-            <div className="h-[50px] bg-white border rounded-lg flex justify-center items-center hover:bg-gray-100">
+            <div className="h-[50px] bg-white border rounded-lg flex justify-center items-center mt-4">
               <h3 className="text-lg pl-2 font-semibold tracking-tight text-gray-900">ISCRIVITI ORA!</h3>
             </div>
           </NavLink>
