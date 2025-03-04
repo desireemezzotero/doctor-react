@@ -24,6 +24,12 @@ function Reviews({reviews,average_vote,doctorId,doctorName,doctorSurname}) {
  
    const handlerSumbit = (e) => {
     e.preventDefault()
+
+    if(!reviewData.full_name || !reviewData.title || !reviewData.description || !reviewData.vote){
+      alert('tutti i campi sono obbligatori')
+      return
+    }
+
     addReview(doctorId, reviewData)
     setReviewData(defaultReviewData)
     window.scrollTo(0, 0)
@@ -136,8 +142,7 @@ function Reviews({reviews,average_vote,doctorId,doctorName,doctorSurname}) {
                name= "full_name"
                value= {reviewData.full_name}
                onChange={onChange}
-               required 
-               />
+             />
             </div>
 
             <div className="mb-5">
@@ -148,7 +153,7 @@ function Reviews({reviews,average_vote,doctorId,doctorName,doctorSurname}) {
                name= "title"
                value= {reviewData.title}
                onChange={onChange}
-               required />
+                />
             </div>
 
             <div className="mb-5">
@@ -159,7 +164,7 @@ function Reviews({reviews,average_vote,doctorId,doctorName,doctorSurname}) {
                name= "description"
                value= {reviewData.description}
                onChange={onChange}
-               required />
+               />
             </div>
 
            <div className="mb-5">
@@ -172,11 +177,11 @@ function Reviews({reviews,average_vote,doctorId,doctorName,doctorSurname}) {
               min="1"
               value= {reviewData.vote}
               onChange={onChange}
-              required />
+               />
            </div>
 
           <div className="border-t border-gray-200 pt-4 md:pt-5">
-            <button type="submit" className="me-2 inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-center text-sm font-medium text-gray-900  border-gray-200 bg-gray-400" onClick={closeModal} >
+            <button type="submit" className="me-2 inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-center text-sm font-medium text-gray-900  border-gray-200 bg-gray-400">
              Aggiungi
             </button>
                 

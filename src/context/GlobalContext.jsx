@@ -61,11 +61,13 @@ const GlobalProvider = ({ children }) => {
   //Funzione per aggiungere un nuovo dottore
   const addDoctor = (dataToSend) => {
     axios.post(apiUrl, dataToSend, { headers: { 'Content-Type': 'multipart/form-data' } })
-      .then(
+      .then( () => {
         console.log('dottore aggiunto')
-      )
+      })
       .catch(err => {
-        console.log(err)
+        if(err.response && err.response.status === 500 ){
+          alert ('email già registrata, inserirne un\'altra')
+        }
       })
   }
 
