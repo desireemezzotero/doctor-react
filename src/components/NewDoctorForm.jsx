@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useEffect, useState } from "react";
 
@@ -114,7 +113,6 @@ function NewDoctorForm() {
    };
 
    // Handle form submission
-   const navigate = useNavigate();
 
    const onDoctorSubmit = (e) => {
       e.preventDefault();
@@ -131,15 +129,9 @@ function NewDoctorForm() {
          return;
       }
 
-      // Submit data
       addDoctor(dataToSend);
 
       // Reset form
-      setDoctorData(defaultDataDoctor);
-      setSelectedSpecialities([]);
-      addDoctor(dataToSend);
-
-      //Reset form
       setDoctorData(defaultDataDoctor);
       setSelectedSpecialities([]);
    }
