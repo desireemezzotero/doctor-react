@@ -3,13 +3,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin, faFacebook, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   return (
 
     <section className="bg-gray-800 text-white p-6 w-full">
       <div className="max-w-screen-xl grid grid-cols-1 md:grid-cols-3 items-center mx-auto p-4 gap-4">
 
         <div className="flex space-x-10 justify-center">
-          <Link to="/" className="hover:underline">Home</Link>
+          <Link className="hover:underline" onClick={scrollToTop}>Home</Link>
           <Link to="/advance" className="hover:underline">I Dottori</Link>
         </div>
 

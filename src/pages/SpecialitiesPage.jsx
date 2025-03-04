@@ -8,7 +8,6 @@ function SpecialitiesPage() {
   const {specialityData, fechSpecialityById} = useGlobalContext()
   const [searchTerm, setSearchTerm] = useState('')
 
-  console.log(specialityData)
 
   useEffect(() => {fechSpecialityById(id),window.scrollTo(0, 0)}, [id])
 

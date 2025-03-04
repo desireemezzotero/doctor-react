@@ -25,7 +25,7 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
   const handlerSumbit = (e) => {
     e.preventDefault()
 
-    if(!reviewData.full_name || !reviewData.title || !reviewData.description || !reviewData.vote){
+    if (!reviewData.full_name || !reviewData.title || !reviewData.description || !reviewData.vote) {
       alert('tutti i campi sono obbligatori')
       return
     }
@@ -49,7 +49,7 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
       <div className="border-l-4 border-teal-500 h-10 flex items-center justify-between mb-4">
         <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Recensioni</h3>
         <div className="shrink-0 space-y-4 ml-3 text-center">
-          <button type="button" data-modal-target="review-modal" data-modal-toggle="review-modal" className="mb-2 me-2 rounded-lg bg-teal-500 p-2 hover:bg-teal-600 text-white" >
+          <button type="button" data-modal-target="review-modal" data-modal-toggle="review-modal" className="mb-2 me-2 rounded-lg bg-teal-500 p-2 hover:bg-teal-600 text-white" onClick={openModal}>
             Scrivi una recensione
           </button>
         </div>
@@ -102,10 +102,10 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
       </section>
 
 
-    {/* Modal */}
-    <div id="review-modal" className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900 bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`} >
-      <div className="relative w-full max-w-2xl p-4">
-        <div className="relative rounded-lg bg-gray-200 shadow">
+      {/* Modal */}
+      <div id="review-modal" className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900 bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`} >
+        <div className="relative w-full max-w-2xl p-4">
+          <div className="relative rounded-lg bg-gray-200 shadow">
 
             {/* Header */}
             <div className="flex items-center justify-between rounded-t border-b border-gray-200 p-4 md:p-5">
@@ -127,51 +127,51 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
             {/* Body */}
             <form className="p-4 md:p-5" onSubmit={handlerSumbit}>
 
-            <div className="mb-5">
-              <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">Nome</label>
-              <input className="bg-gray-50 border text-black border-gray-300 text-sm rounded-lg block w-full p-2.5" 
-               placeholder="Inserisci il tuo nome" 
-               type="text"
-               name= "full_name"
-               value= {reviewData.full_name}
-               onChange={onChange}
-             />
-            </div>
-
-            <div className="mb-5">
-              <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Titolo</label>
-              <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-               placeholder="inserisci un titolo alla recensione" 
-               type="text"
-               name= "title"
-               value= {reviewData.title}
-               onChange={onChange}
+              <div className="mb-5">
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-black">Nome</label>
+                <input className="bg-gray-50 border text-black border-gray-300 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Inserisci il tuo nome"
+                  type="text"
+                  name="full_name"
+                  value={reviewData.full_name}
+                  onChange={onChange}
                 />
-            </div>
+              </div>
 
-            <div className="mb-5">
-              <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Descrizione</label>
-              <textarea className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-               placeholder="inserisci una descrizione alla recensione" 
-               type="text"
-               name= "description"
-               value= {reviewData.description}
-               onChange={onChange}
-               />
-            </div>
+              <div className="mb-5">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Titolo</label>
+                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="inserisci un titolo alla recensione"
+                  type="text"
+                  name="title"
+                  value={reviewData.title}
+                  onChange={onChange}
+                />
+              </div>
 
-           <div className="mb-5">
-             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Voto</label>
-             <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" 
-              placeholder="inserisci un titolo alla recensione" 
-              type="number"               
-              name= "vote"
-              max="5"
-              min="1"
-              value= {reviewData.vote}
-              onChange={onChange}
-               />
-           </div>
+              <div className="mb-5">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Descrizione</label>
+                <textarea className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="inserisci una descrizione alla recensione"
+                  type="text"
+                  name="description"
+                  value={reviewData.description}
+                  onChange={onChange}
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 ">Voto</label>
+                <input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="inserisci un titolo alla recensione"
+                  type="number"
+                  name="vote"
+                  max="5"
+                  min="1"
+                  value={reviewData.vote}
+                  onChange={onChange}
+                />
+              </div>
 
               <div className="border-t border-gray-200 pt-4 md:pt-5">
                 <button type="submit" className="me-2 inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-center text-sm font-medium text-gray-900  border-gray-200 bg-gray-400" onClick={closeModal} >

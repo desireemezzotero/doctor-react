@@ -28,7 +28,7 @@ function DetailPage() {
 
         <div className="md:flex">
           <div className="sm:flex sm:justify-center">
-            <div className="max-w-[100%]">
+            <div className="max-w-[100%] lg:max-w-[350px]">
               <img className="w-full" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
             </div>
           </div>
