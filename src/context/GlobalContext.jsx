@@ -63,6 +63,7 @@ const GlobalProvider = ({ children }) => {
     axios.post(apiUrl, dataToSend, { headers: { 'Content-Type': 'multipart/form-data' } })
       .then(() => {
         console.log('dottore aggiunto')
+        alert('Ti sei iscritto con successo!')
       })
       .catch(err => {
         if (err.response && err.response.status === 500) {

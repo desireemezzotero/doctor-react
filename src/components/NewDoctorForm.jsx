@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../context/GlobalContext";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 function NewDoctorForm() {
    const { speciality, addDoctor, fechDataDoctors } = useGlobalContext();
 
@@ -196,6 +196,7 @@ function NewDoctorForm() {
             </div >
             <div className="text-center mt-[30px]">
                <button type="submit" className="bg-teal-500 text-white py-[12px] px-[45px] rounded-lg hover:text-teal-500 hover:border hover:border-teal-500 hover:bg-transparent">Iscriviti</button>
+               <Link to='/' className="ml-5 bg-teal-500 text-white py-[12px] px-[45px] rounded-lg hover:text-teal-500 hover:border hover:border-teal-500 hover:bg-transparent">Torna Alla Home</Link>
             </div>
          </form >
       </div >
