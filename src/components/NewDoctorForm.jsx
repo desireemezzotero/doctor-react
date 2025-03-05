@@ -144,7 +144,7 @@ function NewDoctorForm() {
             <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Form Di Iscrizione</h3>
          </div>
          <h4 className="text-center text-xl mb-10">Fai crescere la tua carriera. Iscriviti oggi stesso!</h4>
-         <form action="#" onSubmit={onDoctorSubmit} className="mx-auto lg:w-[1000px]">
+         <form action="#" onSubmit={onDoctorSubmit} className="mx-auto lg:w-[1200px]">
             <div className="block mx-5 md:flex md:justify-between">
                <div className="md:w-[45%]">
                   <label htmlFor="base-input" className="block mb-2 text-sm font-medium text-gray-900">Nome</label>
@@ -172,7 +172,7 @@ function NewDoctorForm() {
                               checked={selectedSpecialities.includes(String(element.id))}
                               onChange={specialityHandleChange}
                            />
-                           <label className="ms-2 text-sm font-medium text-gray-900">{element.name}</label>
+                           <label className="text-sm font-medium text-gray-900">{element.name}</label>
                         </div>
                      ))}
                   </div>

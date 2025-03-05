@@ -35,7 +35,7 @@ function HomePage() {
         <CarouselHomePage />
       </section>
 
-      <section className="container mt-[50px] mx-auto px-4">
+      <section className="container mt-[50px] mx-auto">
         <div className="border-l-4 border-teal-500 h-10 flex items-center mb-10">
           <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I nostri servizi</h3>
         </div>
@@ -113,7 +113,7 @@ function HomePage() {
           <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Sei un dottore?</h3>
         </div>
 
-        <div className="text-center bg-teal-500 mx-auto border rounded-2xl mb-5 max-w-xl">
+        <div className="text-center bg-teal-500 mx-auto  border rounded-2xl m-5">
           <div className="h-auto flex flex-col text-white justify-center items-center md:h-[250px] md:flex-row px-4 py-4">
 
             <div className="w-full flex justify-center md:w-[40%]">
