@@ -37,11 +37,11 @@ function StarsRating({ ratingVote }) {
 
    return (
       <>
-         <div className="flex justify-center mt-3">
+         <div className="flex justify-center">
             <div className="flex">
                {stars}
             </div>
-            {ratingVote == null ? null :<span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm dark:bg-blue-200 dark:text-blue-800 ms-3">{ratingVote}</span> }
+            {ratingVote == null ? null :<span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-sm ms-3">{ratingVote}</span> }
          </div>
       </>
    )

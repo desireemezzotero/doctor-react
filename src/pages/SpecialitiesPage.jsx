@@ -52,7 +52,9 @@ function SpecialitiesPage() {
           </h3>
         </div>
         :
-        <h3 className="text-xl font-semibold tracking-tight text-gray-900 mb-3 mt-10 text-center"> Ecco i medici appartenenti alla categoria da te scelta</h3>
+        <div className="border-l-4 border-teal-500 h-10 flex items-center my-4">
+          <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Medici appartenenti alla categoria da te scelta</h3>
+        </div>
       }
 
       <div className="px-1 flex justify-center my-[50px]">
