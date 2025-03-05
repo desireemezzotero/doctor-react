@@ -55,6 +55,8 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
         </div>
       </div>
 
+     
+    {reviews?.[0]?.name !== null ? (
       <section className="py-8 container m-auto px-3">
         <div className="flex">
           <p className="text-2xl font-semibold text-gray-900 mr-2">{average_vote} su 5</p>
@@ -100,7 +102,12 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
           })}
         </div>
       </section>
-
+      ) : (
+          <h3 className="text-xl font-semibold tracking-tight text-gray-900 my-3 text-center">
+            Nessun utente ha lasciato una recensione!
+          </h3>
+        )}
+     
 
       {/* Modal */}
       <div id="review-modal" className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900 bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`} >

@@ -67,17 +67,10 @@ function DetailPage() {
 
       </div>
       <div className="container">
-        {reviews?.[0]?.name !== null ? (
-          <div className="mt-[50px]">
-            <Reviews reviews={reviews} average_vote={average_vote} doctorId={id} doctorName={doctorName} doctorSurname={doctorSurname} />
-          </div>) : (
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 my-3 text-center">
-            Nessun utente ha lasciato una recensione!
-          </h3>
-        )}
+        <div className="mt-[50px]">
+          <Reviews reviews={reviews} average_vote={average_vote} doctorId={id} doctorName={doctorName} doctorSurname={doctorSurname} />
+        </div>
       </div>
-
-
     </section >
   );
 }
