@@ -5,21 +5,21 @@ import StarsRating from "../components/StarsRating"
 
 function SpecialitiesPage() {
   const { id } = useParams()
-  const { specialityData, fechSpecialityById } = useGlobalContext()
+  const { specialityData, fechSpecialityById} = useGlobalContext()
   const [searchTerm, setSearchTerm] = useState('')
 
-  useEffect(() => { fechSpecialityById(id), window.scrollTo(0, 0) }, [id])
+  useEffect(() => { fechSpecialityById(id),window.scrollTo(0, 0) }, [id])
 
   const handlerChange = (e) => {
     setSearchTerm(e.target.value)
   }
 
   const filteredDoctors = specialityData.filter(doc => {
-
     return doc.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       doc.surname.toLowerCase().includes(searchTerm.toLowerCase()) ||
       doc.name_speciality.toLowerCase().includes(searchTerm.toLowerCase());
   });
+
 
   return (
     <section className="container mx-auto mt-[100px]">

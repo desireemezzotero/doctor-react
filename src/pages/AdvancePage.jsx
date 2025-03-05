@@ -7,7 +7,8 @@ import FilteredSpecialities from "../components/FilteredSpecialities";
 
 
 function AdvancePage() {
-  const { fechDataDoctors, doctorsData, specialityData } = useGlobalContext()
+  const { fechDataDoctors, specialityData, setSpecialityData, doctorsData} = useGlobalContext()
+
   const [searchTerm, setSearchTerm] = useState('')
   const [filterDoctors, setFilterDoctors] = useState([])
 
@@ -25,8 +26,12 @@ function AdvancePage() {
     }
   })
 
+  console.log(specialityData)
 
-  useEffect(fechDataDoctors, [])
+  useEffect(() => {
+    fechDataDoctors();
+    setSpecialityData([]);
+  }, []);
 
   return (
     <>
@@ -77,10 +82,6 @@ function AdvancePage() {
           </div>
         </div>
       </section>
-
-
-
-
     </>
 
   )

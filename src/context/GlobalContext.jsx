@@ -94,7 +94,8 @@ const GlobalProvider = ({ children }) => {
     specialityData,
     addReview,
     addDoctor,
-    fechSpecialityByReview
+    fechSpecialityByReview,
+    setSpecialityData
   }
 
   return (
