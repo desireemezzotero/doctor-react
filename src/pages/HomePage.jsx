@@ -40,7 +40,7 @@ function HomePage() {
           <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I nostri servizi</h3>
         </div>
 
-        <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[250px] md:mx-[150px] md:h-[200px] rounded-lg shadow-md">
+        <div className="flex flex-col-reverse md:flex-row bg-white h-auto xl:mx-[250px] md:mx-[150px] md:h-[300px] rounded-lg shadow-md">
           <div className="w-full md:w-[75%] flex items-center p-4 md:p-6 ">
             <div className="pl-5 md:pl-0 md:text-left md:ml-4">
               <p className="mb-2">
