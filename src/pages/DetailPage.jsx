@@ -24,35 +24,32 @@ function DetailPage() {
         <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Dettagli Dottore</h3>
       </div>
 
-      <div className="mx-2 lg:flex lg:justify-around">
+      <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-6 p-4">
 
-        <div className="md:flex">
-          <div className="sm:flex sm:justify-center">
-            <div className="max-w-[100%] lg:max-w-[350px]">
-              <img className="w-full" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
-            </div>
-          </div>
-
-          <div className="description-doctor text-lg mt-10 md:ml-[100px]">
-            <h3 className="text-3xl font-semibold tracking-tight text-gray-900">{`${doctorName} ${doctorSurname}`}</h3>
-            <p className="mb-3">
-              <FontAwesomeIcon icon={faPhone} className="text-black" size="1x" />
-              <span className="text-gray-900 pl-3">{doctorTelephone}</span>
-            </p>
-
-            <p className="mb-3">
-              <FontAwesomeIcon icon={faEnvelope} className="text-black" size="1x" />
-              <span className="text-gray-900 pl-3">{doctorMail}</span>
-            </p>
-
-            <p className="mb-3">
-              <FontAwesomeIcon icon={faLocationDot} className="text-black" size="1x" />
-              <span className="text-gray-900 pl-3">{address}</span>
-            </p>
-          </div>
+        <div className="flex justify-center lg:justify-start">
+         <img className="w-full max-w-[300px]" src={image_url} alt={`Doctor ${doctorName} ${doctorSurname} image`} />
         </div>
 
-        <div className="pt-10 md:ml-10">
+        <div className="description-doctor text-lg mt-10 lg:mt-0 lg:col-span-1 mg:col-span-2">
+          <h3 className="text-3xl font-semibold tracking-tight text-gray-900">{`${doctorName} ${doctorSurname}`}</h3>
+
+          <p className="mb-3">
+           <FontAwesomeIcon icon={faPhone} className="text-black" size="1x" />
+           <span className="text-gray-900 pl-3">{doctorTelephone}</span>
+          </p>
+
+          <p className="mb-3">
+           <FontAwesomeIcon icon={faEnvelope} className="text-black" size="1x" />
+           <span className="text-gray-900 pl-3">{doctorMail}</span>
+          </p>
+
+          <p className="mb-3">
+           <FontAwesomeIcon icon={faLocationDot} className="text-black" size="1x" />
+           <span className="text-gray-900 pl-3">{address}</span>
+          </p>
+       </div>
+
+        <div className="lg:col-span-1 mt-6 lg:mt-0 md-col-span-2">
           <h3 className="text-3xl font-semibold tracking-tight text-gray-900 mb-5">Specializzazioni:</h3>
           {specializations?.map((speciality) => (
             <div key={speciality?.specialityName} className="flex mb-3">
@@ -66,6 +63,7 @@ function DetailPage() {
         </div>
 
       </div>
+
       <div className="container">
         <div className="mt-[50px]">
           <Reviews reviews={reviews} average_vote={average_vote} doctorId={id} doctorName={doctorName} doctorSurname={doctorSurname} />
