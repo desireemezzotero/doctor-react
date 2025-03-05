@@ -141,7 +141,7 @@ function NewDoctorForm() {
    return (
       <div className=" py-[50px]">
          <div className="border-l-4 border-teal-500 h-10 flex items-center mb-[50px]">
-            <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Form Di Iscrizione</h3>
+            <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Modulo Di Iscrizione</h3>
          </div>
          <h4 className="text-center text-xl mb-10">Fai crescere la tua carriera. Iscriviti oggi stesso!</h4>
          <form action="#" onSubmit={onDoctorSubmit} className="mx-auto lg:w-[1200px]">
