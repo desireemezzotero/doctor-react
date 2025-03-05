@@ -61,12 +61,13 @@ const GlobalProvider = ({ children }) => {
   //Funzione per aggiungere un nuovo dottore
   const addDoctor = (dataToSend) => {
     axios.post(apiUrl, dataToSend, { headers: { 'Content-Type': 'multipart/form-data' } })
-      .then( () => {
+      .then(() => {
         console.log('dottore aggiunto')
+        alert('Ti sei iscritto con successo!')
       })
       .catch(err => {
-        if(err.response && err.response.status === 500 ){
-          alert ('email già registrata, inserirne un\'altra')
+        if (err.response && err.response.status === 500) {
+          alert('email già registrata, inserirne un\'altra')
         }
       })
   }
@@ -74,12 +75,12 @@ const GlobalProvider = ({ children }) => {
   //Funzione per stampare i dottori con una determinata recensione 
   const fechSpecialityByReview = (id) => {
     axios.get(`${apiUrl}/reviews/${id}`)
-    .then(res => {
-      setReview(res.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
+      .then(res => {
+        setReview(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const value = {

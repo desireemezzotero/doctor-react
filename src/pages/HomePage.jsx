@@ -36,7 +36,7 @@ function HomePage() {
       </section>
 
       <section className="container mt-[50px] mx-auto px-4">
-        <div className="border-l-4 border-teal-500 h-10 flex items-center">
+        <div className="border-l-4 border-teal-500 h-10 flex items-center mb-10">
           <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">I nostri servizi</h3>
         </div>
 
@@ -76,7 +76,7 @@ function HomePage() {
             {speciality?.map(special => {
               return (
                 <NavLink key={special?.id} to={`/speciality/${special.id}`}>
-                  <div className="flex flex-col items-center justify-center transition-all duration-300 hover:scale-110 bg-white h-[220px] w-[150px] mt-6">
+                  <div className="flex flex-col items-center justify-center transition-all duration-300 hover:shadow  hover:scale-110 hover:bg-white bg-gray-200 h-[220px] w-[150px] mt-6">
 
                     <div className="">
                       <img src={special.icon} className="object-cover w-full h-full"></img>
@@ -125,8 +125,8 @@ function HomePage() {
             </div>
           </div>
 
-          <NavLink to="/new-doctor">
-            <div className="h-[50px] bg-white border rounded-lg flex justify-center items-center mt-4">
+          <NavLink to="/new-doctor" className="h-[50px] bg-white border rounded-lg flex justify-center items-center mt-4  hover:bg-gray-200">
+            <div>
               <h3 className="text-lg pl-2 font-semibold tracking-tight text-gray-900">ISCRIVITI ORA!</h3>
             </div>
           </NavLink>
