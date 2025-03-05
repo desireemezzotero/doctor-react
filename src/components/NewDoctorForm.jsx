@@ -144,7 +144,7 @@ function NewDoctorForm() {
             <h3 className="text-2xl pl-2 font-semibold tracking-tight text-gray-900">Form Di Iscrizione</h3>
          </div>
          <h4 className="text-center text-xl mb-10">Fai crescere la tua carriera. Iscriviti oggi stesso!</h4>
-         <form action="#" onSubmit={onDoctorSubmit} className="mx-auto">
+         <form action="#" onSubmit={onDoctorSubmit} className="mx-auto lg:w-[1000px]">
             <div className="block mx-5 md:flex md:justify-between">
                <div className="md:w-[45%]">
                   <label htmlFor="base-input" className="block mb-2 text-sm font-medium text-gray-900">Nome</label>
@@ -195,8 +195,8 @@ function NewDoctorForm() {
 
             </div >
             <div className="text-center mt-[30px]">
-               <button type="submit" className="bg-teal-500 text-white py-[12px] px-[45px] rounded-lg hover:text-teal-500 hover:border hover:border-teal-500 hover:bg-transparent">Iscriviti</button>
-               <Link to='/' className="ml-5 bg-teal-500 text-white py-[12px] px-[45px] rounded-lg hover:text-teal-500 hover:border hover:border-teal-500 hover:bg-transparent">Torna Alla Home</Link>
+               <button type="submit" className="bg-teal-500 text-white py-[10px] px-[25px] rounded-lg hover:text-teal-500 hover:border hover:border-teal-500 hover:bg-transparent">Iscriviti</button>
+               <button><Link to='/' className="ml-5 bg-teal-500 text-white py-[12px] px-[25px] rounded-lg hover:text-teal-500 hover:border hover:border-teal-500 hover:bg-transparent">Torna Alla Home</Link></button>
             </div>
          </form >
       </div >

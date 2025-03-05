@@ -55,59 +55,55 @@ function Reviews({ reviews, average_vote, doctorId, doctorName, doctorSurname })
         </div>
       </div>
 
-     
-    {reviews?.[0]?.name !== null ? (
-      <section className="py-8 container m-auto px-3">
-        <div className="flex">
-          <p className="text-2xl font-semibold text-gray-900 mr-2">{average_vote} su 5</p>
 
-          <div>
-            <StarsRating ratingVote={average_vote} />
+      {reviews?.[0]?.name !== null ? (
+        <section className="py-8 container m-auto px-3">
+
+          <div className="flex">
+            <p className="text-2xl font-semibold bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-sm">{average_vote} su 5</p>
           </div>
-        </div>
 
-        <div className="mt-6">
-          {reviews?.map(re => {
-            return (
-              <div className="pb-6 sm:flex items-center sm:justify-center" key={re.id}>
-                <div className="shrink-0 space-y-2 sm:w-48 md:w-72">
+          <div className="mt-6">
+            {reviews?.map(re => {
+              return (
+                <div className="pb-6 lg:flex items-center sm:justify-center" key={re.id}>
+                  <div className="shrink-0 space-y-2 sm:w-48 md:w-72">
 
-                  <div className="flex items-center gap-0.5">
-                    <StarsRating ratingVote={re.vote} />
+                    <div className="space-y-0.5">
+                      <p className="text-base font-semibold text-gray-900">{re.name}</p>
+                      <p className="text-sm font-normal text-gray-500">{re.date}</p>
+                    </div>
+
+                    <div className="inline-flex items-center gap-1">
+                      <svg className="h-5 w-5 text-primary-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                          fillRule="evenodd"
+                          d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <p className="text-sm font-medium text-gray-900">Recensione verificata</p>
+                    </div>
                   </div>
 
-                  <div className="space-y-0.5">
-                    <p className="text-base font-semibold text-gray-900">{re.name}</p>
-                    <p className="text-sm font-normal text-gray-500">{re.date}</p>
-                  </div>
-
-                  <div className="inline-flex items-center gap-1">
-                    <svg className="h-5 w-5 text-primary-700 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2c-.791 0-1.55.314-2.11.874l-.893.893a.985.985 0 0 1-.696.288H7.04A2.984 2.984 0 0 0 4.055 7.04v1.262a.986.986 0 0 1-.288.696l-.893.893a2.984 2.984 0 0 0 0 4.22l.893.893a.985.985 0 0 1 .288.696v1.262a2.984 2.984 0 0 0 2.984 2.984h1.262c.261 0 .512.104.696.288l.893.893a2.984 2.984 0 0 0 4.22 0l.893-.893a.985.985 0 0 1 .696-.288h1.262a2.984 2.984 0 0 0 2.984-2.984V15.7c0-.261.104-.512.288-.696l.893-.893a2.984 2.984 0 0 0 0-4.22l-.893-.893a.985.985 0 0 1-.288-.696V7.04a2.984 2.984 0 0 0-2.984-2.984h-1.262a.985.985 0 0 1-.696-.288l-.893-.893A2.984 2.984 0 0 0 12 2Zm3.683 7.73a1 1 0 1 0-1.414-1.413l-4.253 4.253-1.277-1.277a1 1 0 0 0-1.415 1.414l1.985 1.984a1 1 0 0 0 1.414 0l4.96-4.96Z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <p className="text-sm font-medium text-gray-900">Recensione verificata</p>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center mb-2">
+                      <StarsRating ratingVote={re.vote} />
+                    </div>
+                    <p className="text-base text-black font-bold">{re.title}</p>
+                    <p className="text-base font-normal text-gray-500">{re.description}</p>
                   </div>
                 </div>
-
-                <div className="mt-4 min-w-0 flex-1  pt-10">
-                  <p className="text-base text-black font-bold">{re.title}</p>
-                  <p className="text-base font-normal text-gray-500">{re.description}</p>
-                </div>
-              </div>
-            )
-          })}
-        </div>
-      </section>
+              )
+            })}
+          </div>
+        </section>
       ) : (
-          <h3 className="text-xl font-semibold tracking-tight text-gray-900 my-3 text-center">
-            Nessun utente ha lasciato una recensione!
-          </h3>
-        )}
-     
+        <h3 className="text-xl font-semibold tracking-tight text-gray-900 my-3 text-center">
+          Nessun utente ha lasciato una recensione!
+        </h3>
+      )}
+
 
       {/* Modal */}
       <div id="review-modal" className={`fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-gray-900 bg-opacity-50 ${isModalOpen ? 'block' : 'hidden'}`} >
